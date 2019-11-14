@@ -2,4 +2,4 @@
 <image src="doc/search-page.png">
  
 ## Individual recipe page
-<image src="doc/individual-recipe.png>
+<image src="doc/individual-recipe.png">
