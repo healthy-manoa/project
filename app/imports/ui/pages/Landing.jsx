@@ -1,22 +1,41 @@
 import React from 'react';
-import { Grid, Image, Card } from 'semantic-ui-react';
+import _ from 'lodash';
+import { Grid, Image, Search } from 'semantic-ui-react';
+
+const initialState = { isLoading: false, results: [], value: '' };
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
+  state = initialState;
+
+  handleResultSelect = (e, { result }) => this.setState({ value: result.name });
+
+  handleSearchChange = (e, { value }) => {
+    this.setState({ isLoading: true, value });
+
+    setTimeout(() => {
+      if (this.state.value.length < 1) return this.setState(initialState);
+
+      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
+      const isMatch = (result) => re.test(result.name);
+
+      this.setState({
+        isLoading: false,
+        results: _.filter(source, isMatch),
+      });
+    }, 300);
+  }
+
   render() {
+    const { isLoading, value, results } = this.state
+
     return (
         <div className='background'>
-          <Grid verticalAlign='middle' textAlign='center' container>
+          <Grid verticalAlign='bottom' textAlign='center' container>
             <Grid.Column>
-            <Image circular size='medium' centered src='/images/logo-image.jpg'/>
-              <Card fluid>
-                <div className='style'>
-                <Card.Header as='h1'>Welcome to Healthy Manoa</Card.Header>
-                  <Card.Description as='h3'>Learn and share recipes yummy for the tummy!</Card.Description>
-                </div>
-              </Card>
-              </Grid.Column>
-        </Grid>
+              <Image circular size='medium' centered src='/images/logo.png'/>
+            </Grid.Column>
+          </Grid>
         </div>
     );
   }
