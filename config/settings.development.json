@@ -9,5 +9,29 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultVendors": [
+    {
+      "name": "Test"
+    },
+    {
+      "name": "foo"
+    },
+    {
+      "name": "bar"
+    }
+  ],
+
+  "defaultRecipes": [
+    {
+      "name": "Test1"
+    },
+    {
+      "name": "foo1"
+    },
+    {
+      "name": "bar1"
+    }
   ]
 }
