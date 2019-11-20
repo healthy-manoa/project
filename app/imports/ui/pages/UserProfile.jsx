@@ -26,7 +26,7 @@ class UserProfile extends React.Component {
               </Grid>
               <Header as="h2" textAlign="center">Uername: {this.props.currentUser}</Header>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column width={13}>
               {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
             </Grid.Column>
           </Grid.Row>
