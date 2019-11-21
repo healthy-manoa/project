@@ -18,18 +18,22 @@ class UserProfile extends React.Component {
     return (
         <Container>
           <Header as="h2" textAlign="center">Profile</Header>
-          <Grid celled='internally'>
-            <Grid.Row>
-            <Grid.Column width={4}>
+          <Grid divided='vertically'>
+            <Grid.Row columns={2}>
+            <Grid.Column>
               <Grid>
-              <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
               </Grid>
-              <Header as="h2" textAlign="center">Uername: {this.props.currentUser}</Header>
             </Grid.Column>
-            <Grid.Column width={12}>
-              {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
-            </Grid.Column>
-          </Grid.Row>
+              <Grid.Column>
+                <Header as="h2" textAlign="center">Uername: {this.props.currentUser}</Header>
+              </Grid.Column>
+            </Grid.Row>
+              <Grid.Row>
+                <Grid.Column>
+                  {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
+                </Grid.Column>
+              </Grid.Row>
           </Grid>
         </Container>
     );
