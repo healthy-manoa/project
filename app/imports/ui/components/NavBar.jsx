@@ -35,7 +35,7 @@ class NavBar extends React.Component {
             </Modal.Content>
           </Modal>
         <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
-          <Header inverted as='h4'><Icon name='shop'/>Vendors</Header>
+          <Header as='h4'><Icon name='shop'/>Vendors</Header>
         </Menu.Item>
         {this.props.currentUser ? (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Stuff</Menu.Item>,

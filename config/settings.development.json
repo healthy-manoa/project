@@ -1,7 +1,8 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "kyle@foo.com", "password": "changeme" }
   ],
 
   "defaultData": [
@@ -29,16 +30,28 @@
 
   "defaultRecipes": [
     {
-      "name": "Test1",
-      "owner": "Test1"
+      "name": "Fried Rice",
+      "description": "An easy fried rice recipe",
+      "ingredients": [
+        "rice", "soy sauce", "vegetables"
+      ],
+      "steps": "Test Test Test Test Test",
+      "tags": [
+        "Easy"
+      ],
+      "owner": "john@foo.com"
     },
     {
-      "name": "foo1",
-      "owner": "Test1"
-    },
-    {
-      "name": "bar1",
-      "owner": "Test1"
+      "name": "Spam Musubi",
+      "description": "A local classic food",
+      "ingredients": [
+        "spam", "rice", "dry seaweed"
+      ],
+      "steps": "Test Test Test Test Test Test",
+      "tags": [
+        "Easy", "Snack"
+      ],
+      "owner": "kyle@foo.com"
     }
   ]
 }

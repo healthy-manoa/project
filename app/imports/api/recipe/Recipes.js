@@ -8,6 +8,12 @@ const Recipes = new Mongo.Collection('Recipes');
 /** Define a schema to specify the structure of each document in the collection. */
 const RecipeSchema = new SimpleSchema({
   name: String,
+  description: String,
+  ingredients: Array,
+  'ingredients.$': String,
+  steps: String,
+  tags: Array,
+  'tags.$': String,
   owner: String,
 }, { tracker: Tracker });
 

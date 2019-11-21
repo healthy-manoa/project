@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Inventories } from '../../api/inventory/Inventories';
+import { Inventories } from '../../api/inventory/Inventories.js';
 import { Vendors } from '../../api/vendor/Vendor.js';
 import { Recipes } from '../../api/recipe/Recipes.js';
 
@@ -33,7 +33,7 @@ if (Inventories.find().count() === 0) {
   }
 }
 function addRecipe(data) {
-  console.log(` Adding: ${data.name}`);
+  console.log(` Adding: ${data.name} (${data.owner})`);
   Recipes.insert(data);
 }
 

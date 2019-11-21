@@ -4,12 +4,11 @@ import _ from 'lodash';
 import { Grid, Image, Search } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Vendors } from '../../api/vendor/Vendor';
 import { Recipes } from '../../api/recipe/Recipes';
 
 const initialState = { isLoading: false, results: [], value: '' };
 
-const source = Meteor.settings.defaultVendors;
+const source = Meteor.settings.defaultRecipes;
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -63,17 +62,16 @@ class Landing extends React.Component {
 }
 
 Landing.propTypes = {
-  vendors: PropTypes.array.isRequired,
   recipes: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const vendorSub = Meteor.subscribe('Vendors');
   const recipeSub = Meteor.subscribe('Recipes');
   return {
-    vendors: Vendors.find({}).fetch(),
+    ready: recipeSub.ready(),
     recipes: Recipes.find({}).fetch(),
   };
 })(Landing);
