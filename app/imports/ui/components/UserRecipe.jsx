@@ -10,10 +10,10 @@ class UserRecipe extends React.Component {
     return (
         <Card fluid>
           <Card.Content>
-            <Card.Header>{this.props.recipe.name} </Card.Header>
+            <Card.Header>{this.props.recipes.name}</Card.Header>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.recipe._id}`}>Edit</Link>
+            <Link to={`/edit/${this.props.recipes._id}`}>Edit</Link>
           </Card.Content>
         </Card>
     );
@@ -23,7 +23,7 @@ class UserRecipe extends React.Component {
 /** Require a document to be passed to this component. */
 // eslint-disable-next-line no-undef
 UserRecipe.propTypes = {
-  recipe: PropTypes.object.isRequired,
+  recipes: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

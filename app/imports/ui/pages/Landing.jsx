@@ -5,7 +5,7 @@ import { Grid, Image, Search } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Vendors } from '../../api/vendor/Vendor';
-import { Recipes } from '../../api/recipe/Recipe';
+import { Recipes } from '../../api/recipe/Recipes';
 
 const initialState = { isLoading: false, results: [], value: '' };
 

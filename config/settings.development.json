@@ -25,13 +25,16 @@
 
   "defaultRecipes": [
     {
-      "name": "Test1"
+      "name": "Test1",
+      "owner": "Test1"
     },
     {
-      "name": "foo1"
+      "name": "foo1",
+      "owner": "Test1"
     },
     {
-      "name": "bar1"
+      "name": "bar1",
+      "owner": "Test1"
     }
   ]
 }

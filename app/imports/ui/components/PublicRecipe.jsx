@@ -10,7 +10,7 @@ class PublicRecipe extends React.Component {
     return (
         <Card fluid>
           <Card.Content>
-            <Card.Header>{this.props.recipe.name} </Card.Header>
+            <Card.Header>{this.props.recipes.name} </Card.Header>
           </Card.Content>
         </Card>
     );
@@ -20,7 +20,7 @@ class PublicRecipe extends React.Component {
 /** Require a document to be passed to this component. */
 // eslint-disable-next-line no-undef
 PublicRecipe.propTypes = {
-  recipe: PropTypes.object.isRequired,
+  recipes: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
