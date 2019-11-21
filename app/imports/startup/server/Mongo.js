@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Inventories } from '../../api/inventory/Inventories';
 import { Vendors } from '../../api/vendor/Vendor.js';
 import { Recipes } from '../../api/recipe/Recipes.js';
 
@@ -19,6 +20,18 @@ if (Stuffs.find().count() === 0) {
   }
 }
 
+
+function addInventory(data) {
+  console.log(`  Adding: ${data.vendor} (${data.owner})`);
+  Inventories.insert(data);
+}
+
+if (Inventories.find().count() === 0) {
+  if (Meteor.settings.defaultInventories) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultInventories.map(data => addInventory(data));
+  }
+}
 function addRecipe(data) {
   console.log(` Adding: ${data.name}`);
   Recipes.insert(data);

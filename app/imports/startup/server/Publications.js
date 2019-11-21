@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
+import { Inventories } from '../../api/inventory/Inventories';
 import { Vendors } from '../../api/vendor/Vendor';
 import { Recipes } from '../../api/recipe/Recipes';
 
@@ -17,6 +18,21 @@ Meteor.publish('Stuff', function publish() {
 Meteor.publish('StuffAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Stuffs.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish('Inventories', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Inventories.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish('InventoriesAdmin', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Inventories.find();
   }
   return this.ready();
 });
