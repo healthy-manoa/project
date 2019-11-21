@@ -1,7 +1,8 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "kyle@foo.com", "password": "changeme" }
   ],
 
   "defaultData": [
@@ -9,5 +10,48 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultInventories": [
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory","owner": "john@foo.com" }
+  ],
+
+  "defaultVendors": [
+    {
+      "name": "Test"
+    },
+    {
+      "name": "foo"
+    },
+    {
+      "name": "bar"
+    }
+  ],
+
+  "defaultRecipes": [
+    {
+      "name": "Fried Rice",
+      "description": "An easy fried rice recipe",
+      "ingredients": [
+        "rice", "soy sauce", "vegetables"
+      ],
+      "steps": "Test Test Test Test Test",
+      "tags": [
+        "Easy"
+      ],
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Spam Musubi",
+      "description": "A local classic food",
+      "ingredients": [
+        "spam", "rice", "dry seaweed"
+      ],
+      "steps": "Test Test Test Test Test Test",
+      "tags": [
+        "Easy", "Snack"
+      ],
+      "owner": "kyle@foo.com"
+    }
   ]
 }
