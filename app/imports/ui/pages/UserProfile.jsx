@@ -5,8 +5,6 @@ import { Stuffs } from '/imports/api/stuff/Stuff';
 import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import UserRecipe from '../components/UserRecipe';
-import { Recipes } from '../../api/recipe/Recipes';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserProfile extends React.Component {
@@ -22,14 +20,14 @@ class UserProfile extends React.Component {
           <Header as="h2" textAlign="center">Profile</Header>
           <Grid celled='internally'>
             <Grid.Row>
-            <Grid.Column width={4}>
+            <Grid.Column width={3}>
               <Grid>
               <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
               </Grid>
               <Header as="h2" textAlign="center">Uername: {this.props.currentUser}</Header>
             </Grid.Column>
-            <Grid.Column width={12}>
-              {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
+            <Grid.Column>
+              {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
             </Grid.Column>
           </Grid.Row>
           </Grid>
@@ -40,8 +38,7 @@ class UserProfile extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 UserProfile.propTypes = {
-  recipes: PropTypes.array.isRequired,
-
+  stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
   currentUser: PropTypes.string,
 };
@@ -51,7 +48,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
-    recipes: Recipes.find({}).fetch(),
+    stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };

@@ -1,24 +1,21 @@
 import React from 'react';
-import { Grid, Card } from 'semantic-ui-react';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const divStyle = { paddingTop: '10px' };
+    const divStyle = { paddingTop: '15px' };
     return (
         <footer>
-            <Grid verticalAlign='middle' textAlign='center'>
-              <Grid.Column>
-                <div style={divStyle}>
-                  <Card fluid attached='bottom'>
-            <Card.Header>Healthy Manoa</Card.Header>
-            <Card.Description><a href="https://healthy-manoa.github.io/">Home Page</a></Card.Description>
-                  </Card>
-                </div>
-              </Grid.Column>
-            </Grid>
+          <div style={divStyle} className="ui center aligned container">
+            <hr />
+              Department of Information and Computer Sciences <br />
+              University of Hawaii<br />
+              Honolulu, HI 96822 <br />
+            <a href="http://ics-software-engineering.github.io/meteor-application-template-react">Template Home Page</a>
+          </div>
         </footer>
     );
   }
-}5
+}
+
 export default Footer;

@@ -1,16 +1,3 @@
-.background {
-  background-image: url('/images/background-image.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 700px;
-}
-
-.style {
-  background-color: black;
-  color: white;
-  text-shadow: 2px 2px green;
-}
-
-.vendor{
-  background-color: white;
+#nav{
+  background-color: green;
 }
