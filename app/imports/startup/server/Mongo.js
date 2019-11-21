@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Inventories } from '../../api/inventory/Inventories';
+import { Vendors } from '../../api/vendor/Vendor.js';
+import { Recipes } from '../../api/recipe/Recipes.js';
 
 /* eslint-disable no-console */
 
@@ -28,5 +30,28 @@ if (Inventories.find().count() === 0) {
   if (Meteor.settings.defaultInventories) {
     console.log('Creating default data.');
     Meteor.settings.defaultInventories.map(data => addInventory(data));
+  }
+}
+function addRecipe(data) {
+  console.log(` Adding: ${data.name}`);
+  Recipes.insert(data);
+}
+
+if (Recipes.find().count() === 0) {
+  if (Meteor.settings.defaultRecipes) {
+    console.log('Creating default recipes.');
+    Meteor.settings.defaultRecipes.map(data => addRecipe(data));
+  }
+}
+
+function addVendor(data) {
+  console.log(` Adding: ${data.name}`);
+  Vendors.insert(data);
+}
+
+if (Vendors.find().count() === 0) {
+  if (Meteor.settings.defaultVendors) {
+    console.log('Creating default vendors.');
+    Meteor.settings.defaultVendors.map(data => addVendor(data));
   }
 }

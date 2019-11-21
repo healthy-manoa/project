@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Inventories } from '../../api/inventory/Inventories';
+import { Vendors } from '../../api/vendor/Vendor';
+import { Recipes } from '../../api/recipe/Recipes';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
@@ -20,7 +22,6 @@ Meteor.publish('StuffAdmin', function publish() {
   return this.ready();
 });
 
-
 Meteor.publish('Inventories', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
@@ -34,4 +35,12 @@ Meteor.publish('InventoriesAdmin', function publish() {
     return Inventories.find();
   }
   return this.ready();
+});
+
+Meteor.publish('Vendor', function publish() {
+  return Vendors.find();
+});
+
+Meteor.publish('Recipes', function publish() {
+  return Recipes.find();
 });
