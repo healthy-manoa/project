@@ -26,7 +26,7 @@ class UserProfile extends React.Component {
               </Grid>
             </Grid.Column>
               <Grid.Column>
-                <Header as="h2" textAlign="center">Uername: {this.props.currentUser}</Header>
+                <Header as="h2" textAlign="center">Username: {this.props.currentUser}</Header>
               </Grid.Column>
             </Grid.Row>
               <Grid.Row>
