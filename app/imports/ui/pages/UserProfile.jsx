@@ -3,7 +3,7 @@ import { Container, Grid, Header, Image, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import UserRecipe from '../components/UserRecipe';
+import IndividualRecipe from '../components/IndividualRecipe';
 import { Recipes } from '../../api/recipe/Recipes';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
             </Grid.Row>
               <Grid.Row>
                 <Grid.Column>
-                  {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
+                  {this.props.recipes.map((recipes) => <IndividualRecipe key={recipes._id} recipe={recipes} />)}
                 </Grid.Column>
               </Grid.Row>
           </Grid>
@@ -43,7 +43,6 @@ class UserProfile extends React.Component {
 /** Require an array of Stuff documents in the props. */
 UserProfile.propTypes = {
   recipes: PropTypes.array.isRequired,
-
   ready: PropTypes.bool.isRequired,
   currentUser: PropTypes.string,
 };
@@ -51,7 +50,7 @@ UserProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Recipes');
   return {
     recipes: Recipes.find({}).fetch(),
     ready: subscription.ready(),

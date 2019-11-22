@@ -10,7 +10,12 @@ class PublicRecipe extends React.Component {
     return (
         <Card fluid>
           <Card.Content>
-            <Card.Header>{this.props.recipes.name} </Card.Header>
+            <Card.Header>{this.props.recipes.name}</Card.Header>
+            <Card.Header>{this.props.recipes.description}</Card.Header>
+            <Card.Header>{this.props.recipes.ingredients}</Card.Header>
+            <Card.Header>{this.props.recipes.steps}</Card.Header>
+            <Card.Header>{this.props.recipes.tags}</Card.Header>
+            <Card.Header>{this.props.recipes.owner}</Card.Header>
           </Card.Content>
         </Card>
     );
