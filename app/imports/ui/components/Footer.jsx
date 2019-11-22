@@ -20,5 +20,5 @@ class Footer extends React.Component {
         </footer>
     );
   }
-}5
+}
 export default Footer;

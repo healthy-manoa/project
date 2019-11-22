@@ -18,11 +18,9 @@ class PublicRecipe extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-// eslint-disable-next-line no-undef
 PublicRecipe.propTypes = {
   recipes: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-// eslint-disable-next-line no-undef
 export default withRouter(PublicRecipe);

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Grid, Header, Image, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '/imports/api/stuff/Stuff';
-import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import UserRecipe from '../components/UserRecipe';
