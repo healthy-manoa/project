@@ -10,12 +10,12 @@ class PublicRecipe extends React.Component {
     return (
         <Card fluid>
           <Card.Content>
-            <Card.Header>{this.props.recipes.name}</Card.Header>
-            <Card.Header>{this.props.recipes.description}</Card.Header>
-            <Card.Header>{this.props.recipes.ingredients}</Card.Header>
-            <Card.Header>{this.props.recipes.steps}</Card.Header>
-            <Card.Header>{this.props.recipes.tags}</Card.Header>
-            <Card.Header>{this.props.recipes.owner}</Card.Header>
+            <Card.Header>{this.props.recipe.name}</Card.Header>
+            <Card.Header>{this.props.recipe.description}</Card.Header>
+            <Card.Header>{this.props.recipe.ingredients}</Card.Header>
+            <Card.Header>{this.props.recipe.steps}</Card.Header>
+            <Card.Header>{this.props.recipe.tags}</Card.Header>
+            <Card.Header>{this.props.recipe.owner}</Card.Header>
           </Card.Content>
         </Card>
     );
@@ -24,7 +24,7 @@ class PublicRecipe extends React.Component {
 
 /** Require a document to be passed to this component. */
 PublicRecipe.propTypes = {
-  recipes: PropTypes.object.isRequired,
+  recipe: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

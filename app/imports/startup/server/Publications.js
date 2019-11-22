@@ -14,12 +14,16 @@ Meteor.publish('Stuff', function publish() {
   return this.ready();
 });
 
-Meteor.publish('Recipes', function publish() {
+Meteor.publish('IndividualRecipes', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Recipes.find({ owner: username });
   }
   return this.ready();
+});
+
+Meteor.publish('PublicRecipes', function publish() {
+  return Recipes.find();
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */

@@ -7,7 +7,7 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
@@ -22,7 +22,7 @@ const formSchema = new SimpleSchema({
 });
 
 /** Renders the Page for adding a document. */
-class AddRecipe extends React.Component {
+class AddRecipes extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
@@ -45,7 +45,7 @@ class AddRecipe extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Recipe</Header>
+            <Header as="h2" textAlign="center">Add Recipes</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
@@ -63,4 +63,4 @@ class AddRecipe extends React.Component {
   }
 }
 
-export default AddRecipe;
+export default AddRecipes;

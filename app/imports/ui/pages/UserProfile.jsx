@@ -20,7 +20,7 @@ class UserProfile extends React.Component {
           <Header as="h2" textAlign="center">Profile</Header>
           <Grid divided='vertically'>
             <Grid.Row columns={2}>
-            <Grid.Column>
+            <Grid.Column width={4}>
               <Grid>
                 <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
               </Grid>
@@ -50,7 +50,7 @@ UserProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Recipes');
+  const subscription = Meteor.subscribe('IndividualRecipes');
   return {
     recipes: Recipes.find({}).fetch(),
     ready: subscription.ready(),

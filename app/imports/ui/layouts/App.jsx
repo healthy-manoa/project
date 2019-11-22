@@ -7,7 +7,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -16,7 +15,8 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Vendor from '../pages/Vendor';
 import UserProfile from '../pages/UserProfile';
-import AddRecipe from '../pages/AddRecipe';
+import AddRecipes from '../pages/AddRecipe';
+import ListRecipes from '../pages/ListRecipes';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -31,9 +31,9 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/vendor" component={Vendor}/>
               <Route path="/profile" component={UserProfile}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
+              <ProtectedRoute path="/list" component={ListRecipes}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
-              <ProtectedRoute path="/add" component={AddRecipe}/>
+              <ProtectedRoute path="/add" component={AddRecipes}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
