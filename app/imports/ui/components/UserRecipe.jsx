@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 
-class IndividualRecipe extends React.Component {
+class UserRecipe extends React.Component {
   render() {
     return (
         <Card fluid>
@@ -26,9 +26,9 @@ class IndividualRecipe extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-IndividualRecipe.propTypes = {
+UserRecipe.propTypes = {
   recipe: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(IndividualRecipe);
+export default withRouter(UserRecipe);
