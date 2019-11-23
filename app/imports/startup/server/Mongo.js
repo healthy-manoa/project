@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Inventories } from '../../api/inventory/Inventories.js';
-import { Vendors } from '../../api/vendor/Vendor.js';
+import { Vendors } from '../../api/vendor/Vendors.js';
 import { Recipes } from '../../api/recipe/Recipes.js';
 
 /* eslint-disable no-console */

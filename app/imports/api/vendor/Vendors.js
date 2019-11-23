@@ -8,6 +8,9 @@ const Vendors = new Mongo.Collection('Vendors');
 /** Define a schema to specify the structure of each document in the collection. */
 const VendorSchema = new SimpleSchema({
   name: String,
+  image: String,
+  description: String,
+  location: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

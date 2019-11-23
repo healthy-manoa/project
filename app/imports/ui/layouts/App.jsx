@@ -13,10 +13,11 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import Vendor from '../pages/Vendor';
 import UserProfile from '../pages/UserProfile';
 import AddRecipes from '../pages/AddRecipe';
 import ListRecipes from '../pages/ListRecipes';
+import ListInventory from '../pages/ListInventory';
+import ShowVendors from '../pages/ShowVendors';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -29,7 +30,8 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <Route path="/vendor" component={Vendor}/>
+              <Route path="/vendor" component={ShowVendors}/>
+              <Route path="/list-inventory" component={ListInventory}/>
               <Route path="/profile" component={UserProfile}/>
               <ProtectedRoute path="/list" component={ListRecipes}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
