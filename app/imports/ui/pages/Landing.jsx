@@ -1,14 +1,19 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import _ from 'lodash';
-import { Grid, Image, Search } from 'semantic-ui-react';
+import { Grid, Image, Search, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Recipes } from '../../api/recipe/Recipes';
 
-const initialState = { isLoading: false, results: [], value: '' };
+const resultRenderer = ({ name }) => <Label content={name}/>;
 
-const source = Meteor.settings.defaultRecipes;
+resultRenderer.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+};
+
+const initialState = { isLoading: false, results: [], value: '' };
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -25,16 +30,16 @@ class Landing extends React.Component {
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
       const isMatch = (result) => re.test(result.name);
 
-      this.setState({
+      return this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch),
+        results: _.filter(this.props.recipes, isMatch),
       });
     }, 300);
   }
 
   render() {
-    const { isLoading, value, results } = this.state;
     const style = { paddingTop: '150px' };
+    const { value, results } = this.state;
     return (
         <div className='background'>
           <Grid style={style} verticalAlign='bottom' textAlign='center' container>
@@ -43,16 +48,14 @@ class Landing extends React.Component {
             </Grid.Row>
             <Grid.Row>
               <Search
-                  size='massive'
                   fluid
-                  loading={isLoading}
-                  onResultSelect={this.handleResultSelect}
+                  size='huge'
                   onSearchChange={_.debounce(this.handleSearchChange, 500, {
                     leading: true,
                   })}
                   results={results}
                   value={value}
-                  {...this.props}
+                  resultRenderer={resultRenderer}
               />
             </Grid.Row>
           </Grid>
@@ -63,15 +66,13 @@ class Landing extends React.Component {
 
 Landing.propTypes = {
   recipes: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const recipeSub = Meteor.subscribe('Recipes');
+  Meteor.subscribe('PublicRecipes');
   return {
-    ready: recipeSub.ready(),
     recipes: Recipes.find({}).fetch(),
   };
 })(Landing);
