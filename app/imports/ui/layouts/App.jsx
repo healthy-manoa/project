@@ -18,6 +18,7 @@ import AddRecipes from '../pages/AddRecipe';
 import ListRecipes from '../pages/ListRecipes';
 import ListInventory from '../pages/ListInventory';
 import ShowVendors from '../pages/ShowVendors';
+import IndividualRecipe from '../pages/IndividualRecipe';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -32,11 +33,11 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/vendor" component={ShowVendors}/>
               <Route path="/list-inventory" component={ListInventory}/>
-              <Route path="/profile" component={UserProfile}/>
-              <ProtectedRoute path="/list" component={ListRecipes}/>
+              <ProtectedRoute path="/list_recipe" component={ListRecipes}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
-              <ProtectedRoute path="/add" component={AddRecipes}/>
+              <ProtectedRoute path="/add_recipe" component={AddRecipes}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/recipe/:_id" component={IndividualRecipe}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

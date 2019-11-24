@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Header, Image, Loader } from 'semantic-ui-react';
+import { Container, Grid, Header, Image, Loader, Card } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -30,9 +30,9 @@ class UserProfile extends React.Component {
               </Grid.Column>
             </Grid.Row>
               <Grid.Row>
-                <Grid.Column>
+                <Card.Group>
                   {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
-                </Grid.Column>
+                </Card.Group>
               </Grid.Row>
           </Grid>
         </Container>
