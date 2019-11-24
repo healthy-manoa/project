@@ -14,6 +14,10 @@ Meteor.publish('Stuff', function publish() {
   return this.ready();
 });
 
+Meteor.publish('Recipe', function publish() {
+  return Recipes.find();
+});
+
 Meteor.publish('UserRecipes', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;

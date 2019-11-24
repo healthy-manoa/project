@@ -8,7 +8,7 @@ import { withRouter, Link } from 'react-router-dom';
 class UserRecipe extends React.Component {
   render() {
     return (
-        <Card as={ Link } to={`/recipe/${this.props.recipe._id}`}>
+        <Card as={ Link } to={`/recipes/${this.props.recipe._id}`}>
           <Card.Content>
             <Card.Header>{this.props.recipe.name}</Card.Header>
             <Card.Description>{this.props.recipe.description}</Card.Description>

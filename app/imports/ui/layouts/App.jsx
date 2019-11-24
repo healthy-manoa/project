@@ -33,11 +33,11 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/vendor" component={ShowVendors}/>
               <Route path="/list-inventory" component={ListInventory}/>
-              <ProtectedRoute path="/list_recipe" component={ListRecipes}/>
+              <ProtectedRoute path="/recipes" component={ListRecipes}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
               <ProtectedRoute path="/add_recipe" component={AddRecipes}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <ProtectedRoute path="/recipe/:_id" component={IndividualRecipe}/>
+              <ProtectedRoute path="/recipes/:_id" component={IndividualRecipe}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
