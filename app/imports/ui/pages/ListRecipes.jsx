@@ -17,14 +17,16 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className={'vendor-background'}>
         <Container>
-          <Header as="h2" textAlign="center">List Recipes</Header>
+          <Header as="h2" textAlign="center" inverted>List Recipes</Header>
           <Grid>
             <Card.Group>
               {this.props.recipes.map((recipes) => <PublicRecipe key={recipes} recipe={recipes} />)}
             </Card.Group>
           </Grid>
         </Container>
+        </div>
     );
   }
 }

@@ -39,13 +39,13 @@ class NavBar extends React.Component {
         </Menu.Item>
         {this.props.currentUser ? (
             [<Menu.Item as={NavLink} activeClassName="active"
-                        exact to="/add_recipe" key='add_recipe'>Add Recipes</Menu.Item>,
+                        exact to="/list-inventory" key= 'inventory' >Inventory</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/recipes" key='recipes'>List Recipes</Menu.Item>,
+                         exact to="/list-recipes" key='list-recipes'>List Recipes</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active"
+                         exact to="/add-recipe" key='add-recipe'>Add Recipes</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/profile" key='profile'>Profile</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/list-inventory" key= 'inventory' >Inventory</Menu.Item>,
             ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
@@ -62,7 +62,6 @@ class NavBar extends React.Component {
           ) : (
             <Dropdown text={this.props.currentUser} pointing="top right" icon={'user'}>
               <Dropdown.Menu>
-                <Dropdown.Item icon="user" text="Profile" as={NavLink} exact to="/profile"/>
                 <Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
               </Dropdown.Menu>
             </Dropdown>

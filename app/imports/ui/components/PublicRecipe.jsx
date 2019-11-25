@@ -11,10 +11,10 @@ class PublicRecipe extends React.Component {
         <Card as={ Link } to={`/recipes/${this.props.recipe._id}`}>
           <Card.Content>
             <Card.Header>{this.props.recipe.name}</Card.Header>
-            <Card.Description>{this.props.recipe.description}</Card.Description>
-            <Card.Description>{this.props.recipe.ingredients}</Card.Description>
-            <Card.Description>{this.props.recipe.steps}</Card.Description>
-            <Card.Description>{this.props.recipe.tags}</Card.Description>
+            <Card.Description>Description: {this.props.recipe.description}</Card.Description>
+            <Card.Description>Ingredients: {this.props.recipe.ingredients}</Card.Description>
+            <Card.Description>Steps: {this.props.recipe.steps}</Card.Description>
+            <Card.Description>Tags: {this.props.recipe.tags}</Card.Description>
             <Card.Meta>{this.props.recipe.owner}</Card.Meta>
           </Card.Content>
         </Card>

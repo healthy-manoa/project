@@ -20,7 +20,7 @@ class ListInventory extends React.Component {
     return (
         <div className={'vendor-background'}>
         <Container>
-          <Header as="h2" textAlign="center" inverted> Inventories</Header>
+          <Header as="h2" textAlign="center" inverted>Inventories</Header>
           <Card.Group>
             {this.props.inventories.map((inventory, index) => <Inventory
                 key={index}

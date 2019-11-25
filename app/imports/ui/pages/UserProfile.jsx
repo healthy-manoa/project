@@ -16,17 +16,18 @@ class UserProfile extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className={'vendor-background'}>
         <Container>
-          <Header as="h2" textAlign="center">Profile</Header>
+          <Header as="h2" textAlign="center" inverted>Profile</Header>
           <Grid divided='vertically'>
-            <Grid.Row columns={2}>
+            <Grid.Row centered columns={2} >
             <Grid.Column width={4}>
               <Grid>
-                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' size='medium'/>
               </Grid>
             </Grid.Column>
-              <Grid.Column>
-                <Header as="h2" textAlign="center">Username: {this.props.currentUser}</Header>
+              <Grid.Column width={6}>
+                <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
               </Grid.Column>
             </Grid.Row>
               <Grid.Row>
@@ -36,6 +37,7 @@ class UserProfile extends React.Component {
               </Grid.Row>
           </Grid>
         </Container>
+        </div>
     );
   }
 }

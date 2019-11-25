@@ -14,7 +14,8 @@ Meteor.publish('Stuff', function publish() {
   return this.ready();
 });
 
-Meteor.publish('Recipe', function publish() {
+Meteor.publish('IndividualRecipe', function publish() {
+  //Individual recipe page by id
   return Recipes.find();
 });
 
