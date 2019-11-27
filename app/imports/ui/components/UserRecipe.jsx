@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ class UserRecipe extends React.Component {
   render() {
     return (
         <Card as={ Link } to={`/recipes/${this.props.recipe._id}`}>
+          <Image src={this.props.recipe.image}/>
           <Card.Content>
             <Card.Header>{this.props.recipe.name}</Card.Header>
             <Card.Description>Description: {this.props.recipe.description}</Card.Description>

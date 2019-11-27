@@ -14,11 +14,6 @@ Meteor.publish('Stuff', function publish() {
   return this.ready();
 });
 
-Meteor.publish('IndividualRecipe', function publish() {
-  //Individual recipe page by id
-  return Recipes.find();
-});
-
 Meteor.publish('UserRecipes', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;

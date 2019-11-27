@@ -3,6 +3,8 @@ import { Recipes } from '/imports/api/recipe/Recipes';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField';
+import ListField from 'uniforms-semantic/ListField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
@@ -13,6 +15,7 @@ import SimpleSchema from 'simpl-schema';
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   name: String,
+  image: String,
   description: String,
   ingredients: Array,
   'ingredients.$': String,
@@ -49,10 +52,11 @@ class AddRecipes extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <TextField description='description'/>
-                <TextField ingredients='ingredients'/>
-                <TextField steps='steps'/>
-                <TextField tags='tags'/>
+                <TextField name='image'/>
+                <LongTextField name='description'/>
+                <ListField name='ingredients'/>
+                <LongTextField name='steps'/>
+                <ListField name='tags'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
