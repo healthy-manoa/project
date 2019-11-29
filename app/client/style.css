@@ -12,6 +12,11 @@
   height: 700px;
 }
 
+.vendor-button{
+  margin: 15px;
+  padding : 0;
+}
+
 .style {
   background-color: black;
   color: white;

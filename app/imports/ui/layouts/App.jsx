@@ -19,6 +19,7 @@ import ListRecipes from '../pages/ListRecipes';
 import ListInventory from '../pages/ListInventory';
 import ShowVendors from '../pages/ShowVendors';
 import EditVendor from '../pages/EditVendor';
+import IndividualVendor from '../components/IndividualVendor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/vendor" component={ShowVendors}/>
               <Route path="/list-inventory" component={ListInventory}/>
+              <Route path="/individual-vendor/:_id" component={IndividualVendor}/>
               <Route path="/profile" component={UserProfile}/>
               <ProtectedRoute path="/list" component={ListRecipes}/>
               <ProtectedRoute path="/edit-vendor/:_id" component={EditVendor}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -7,6 +7,7 @@ import { withRouter, Link } from 'react-router-dom';
 class Vendor extends React.Component {
   render() {
     return (
+        <Link to={`/individual-vendor/${this.props.vendor._id}`} className={'vendor-button'}>
         <Card>
           <Image src= {this.props.vendor.image} />
           <Card.Content>
@@ -22,7 +23,7 @@ class Vendor extends React.Component {
             <Link to={`/edit-vendor/${this.props.vendor._id}`}>Edit</Link>
           </Card.Content>
         </Card>
-
+        </Link>
     );
   }
 }
