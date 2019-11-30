@@ -32,9 +32,10 @@ class EditRecipe extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
+        <div className={'vendor-background'} >
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Recipe</Header>
+            <Header as="h2" textAlign="center" inverted>Edit Recipe</Header>
             <AutoForm schema={RecipeSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>
@@ -49,6 +50,7 @@ class EditRecipe extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Grid, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '../../api/recipe/Recipes';
@@ -20,11 +20,9 @@ class ListRecipes extends React.Component {
         <div className={'vendor-background'}>
         <Container>
           <Header as="h2" textAlign="center" inverted>List Recipes</Header>
-          <Grid>
             <Card.Group>
               {this.props.recipes.map((recipes) => <PublicRecipe key={recipes} recipe={recipes} />)}
             </Card.Group>
-          </Grid>
         </Container>
         </div>
     );

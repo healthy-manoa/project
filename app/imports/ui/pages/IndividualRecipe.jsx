@@ -14,15 +14,21 @@ class IndividualRecipe extends React.Component {
 
   renderPage() {
     return (
-      <Container>
-        <Header as="h2" textAlign="center">{this.props.recipe.name}</Header>
-        <Image src={this.props.recipe.image}/>
-        <p>{this.props.recipe.description}</p>
-        <p>{this.props.recipe.ingredients}</p>
-        <p>{this.props.recipe.steps}</p>
-        <p>{this.props.recipe.tags}</p>
-        <p>{this.props.recipe.owner}</p>
-      </Container>
+        <div className={'vendor-background'} >
+          <Container>
+            <Header as="h2" textAlign="center" inverted>{this.props.recipe.name}</Header>
+            <Image src={this.props.recipe.image} size={'large'}/>
+            <Header as="h3" textAlign="left" inverted>Description</Header>
+            <p className={'white-text'}>{this.props.recipe.description}</p>
+            <Header as="h3" textAlign="left" inverted>Ingredients</Header>
+            <p className={'white-text'}>{this.props.recipe.ingredients}</p>
+            <Header as="h3" textAlign="left" inverted>Steps</Header>
+            <p className={'white-text'}>{this.props.recipe.steps}</p>
+            <Header as="h3" textAlign="left" inverted>Tags</Header>
+            <p className={'white-text'}>{this.props.recipe.tags}</p>
+            <Header as="h4" textAlign="left" inverted>Publisher: {this.props.recipe.owner}</Header>
+          </Container>
+        </div>
     );
   }
 }
