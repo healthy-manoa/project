@@ -12,6 +12,11 @@
   height: auto;
 }
 
+.vendor-button{
+  margin: 15px;
+  padding : 0;
+}
+
 .style {
   background-color: black;
   color: white;
@@ -24,4 +29,8 @@
 
 .white-text{
   color: white;
+}
+
+.individual-vendor{
+  margin-top: 20px;
 }
