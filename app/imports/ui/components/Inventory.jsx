@@ -17,6 +17,9 @@ class Inventory extends React.Component {
             <Card.Description>
               {this.props.inventory.description}
             </Card.Description>
+            <Card.Description>
+              {this.props.inventory.price}
+            </Card.Description>
           </Card.Content>
           <Card.Content extra>
             <Link to={`/edit/${this.props.inventory._id}`}>Edit</Link>

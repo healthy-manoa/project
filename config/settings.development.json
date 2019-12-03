@@ -14,9 +14,9 @@
   ],
 
   "defaultInventories": [
-    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory","owner": "john@foo.com" },
-    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory","owner": "john@foo.com" },
-    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory","owner": "john@foo.com" }
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory", "price": "1.05","owner": "john@foo.com"},
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory", "price": "1.05","owner": "john@foo.com"},
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory",  "price": "1.05","owner": "john@foo.com"  }
   ],
 
   "defaultVendors": [

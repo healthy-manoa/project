@@ -1,10 +1,9 @@
 import React from 'react';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Header, Container } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2';
-import Card from 'semantic-ui-react/dist/commonjs/views/Card';
 import Image from 'semantic-ui-react/dist/commonjs/elements/Image';
 import { Vendors } from '../../api/vendor/Vendors';
 
@@ -18,19 +17,14 @@ class IndividualVendor extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <div className={'vendor-background'}>
-        <Card>
-          <Image src= {this.props.doc.image} />
-          <Card.Content>
-            <Card.Header>{this.props.doc.name}</Card.Header>
-            <Card.Meta>
-              <span className='date'>{this.props.doc.location}</span>
-            </Card.Meta>
-            <Card.Description>
-              {this.props.doc.description}
-            </Card.Description>
-          </Card.Content>
-        </Card>
+        <div>
+          <Container>
+          <Image size = 'large' src= {this.props.doc.image} />
+          <Header> {this.props.doc.name}</Header>
+            <span className='date'>{this.props.doc.location}</span>
+          <Header> Description</Header>
+             <p> {this.props.doc.description} </p>
+        </Container>
         </div>
     );
   }

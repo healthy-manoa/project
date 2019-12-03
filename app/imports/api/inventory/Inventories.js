@@ -14,6 +14,7 @@ const InventoriesSchema = new SimpleSchema({
   image: String,
   description: String,
   owner: String,
+  price: Number,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
