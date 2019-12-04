@@ -34,3 +34,7 @@
 .individual-vendor{
   margin-top: 20px;
 }
+
+.vendor-image{
+  object-fit: cover;
+}
