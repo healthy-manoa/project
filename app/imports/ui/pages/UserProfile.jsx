@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Grid, Header, Image, Loader, Card } from 'semantic-ui-react';
+import { Container, Grid, Header, Image, Loader, Card, Divider, Placeholder } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import UserRecipe from '../components/UserRecipe';
 import { Recipes } from '../../api/recipe/Recipes';
@@ -19,18 +20,15 @@ class UserProfile extends React.Component {
         <div className={'vendor-background'}>
         <Container>
           <Header as="h2" textAlign="center" inverted>Profile</Header>
-          <Grid divided='vertically'>
-            <Grid.Row centered columns={2} >
-            <Grid.Column width={4}>
-              <Grid>
-                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' size='medium'/>
-              </Grid>
-            </Grid.Column>
-              <Grid.Column width={6}>
+          <Divider inverted/>
+          <Grid>
+            <Grid.Row centered columns={2}>
                 <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
-              </Grid.Column>
+                <Header textAlign="center"><Link to={`/change-password/:_id`}>Change Password</Link></Header>
             </Grid.Row>
-              <Grid.Row>
+            <Divider inverted/>
+              <Grid.Row centered columns={2}>
+                <Header as="h2" textAlign="center" inverted>Individual Recipes</Header>
                 <Card.Group>
                   {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
                 </Card.Group>
