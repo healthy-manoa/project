@@ -70,7 +70,7 @@ class Landing extends React.Component {
             <Grid.Row>
               <Image size='medium' centered src='/images/logo.png'/>
             </Grid.Row>
-            <Grid.Row columns={3}>
+            <Grid.Row columns={5}>
               <Grid.Column>
                 <Dropdown
                     placeholder='Choose what to search'
