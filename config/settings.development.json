@@ -16,7 +16,10 @@
   "defaultInventories": [
     { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory", "price": "1.05","owner": "vendor@foo.com"},
     { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory", "price": "1.05","owner": "vendor@foo.com"},
-    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory",  "price": "1.05","owner": "vendor@foo.com"  }
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://vinmec-prod.s3.amazonaws.com/images/20190719_102004_523972_chuoi.max-800x800.jpg", "description": "This is a sample of a vendor inventory",  "price": "1.05","owner": "vendor@foo.com"  },
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://foodrevolution.org/wp-content/uploads/iStock-854389420-tashka2000-featured-Recovered.jpg", "description": "This is a sample of a vendor inventory", "price": "1.05","owner": "vendor@foo.com"},
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://d6prv7be4nrvy.cloudfront.net/wp-content/uploads/apples-750x450.jpg", "description": "This is a sample of a vendor inventory", "price": "1.05","owner": "vendor@foo.com"},
+    { "vendor": "Sample Vendor", "location": "UH Manoa", "contact": "xxx-xxx-xxxx", "ingredient": "Sample Ingredients",  "image": "https://cdn-prod.medicalnewstoday.com/content/images/headlines/266/266765/two-heads-of-broccoli.jpg", "description": "This is a sample of a vendor inventory",  "price": "1.05","owner": "vendor@foo.com"  }
   ],
 
   "defaultVendors": [
