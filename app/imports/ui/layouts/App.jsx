@@ -19,16 +19,9 @@ import ListInventory from '../pages/ListInventory';
 import ShowVendors from '../pages/ShowVendors';
 import IndividualRecipe from '../pages/IndividualRecipe';
 import EditRecipe from '../pages/EditRecipe';
-<<<<<<< Updated upstream
-import EditVendor from '../pages/EditVendor';
-import IndividualVendor from '../components/IndividualVendor';
 import EditVendor from '../pages/EditVendor';
 import IndividualVendor from '../components/IndividualVendor';
 import EditPassword from '../pages/EditPassword';
-
-=======
-import EditPassword from '../pages/EditPassword';
->>>>>>> Stashed changes
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
