@@ -65,6 +65,7 @@ class Landing extends React.Component {
     const style = { paddingTop: '150px' };
     const { value, results } = this.state;
     return (
+        <div className='content-wrap'>
         <div className='background'>
           <Grid style={style} verticalAlign='bottom' textAlign='center' container>
             <Grid.Row>
@@ -93,6 +94,7 @@ class Landing extends React.Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
+        </div>
         </div>
     );
   }

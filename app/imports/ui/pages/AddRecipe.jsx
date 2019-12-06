@@ -29,9 +29,9 @@ class AddRecipes extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, description, ingredients, steps, tags } = data;
+    const { name, image, description, ingredients, steps, tags } = data;
     const owner = Meteor.user().username;
-    Recipes.insert({ name, description, ingredients, steps, tags, owner },
+    Recipes.insert({ name, image, description, ingredients, steps, tags, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -46,6 +46,7 @@ class AddRecipes extends React.Component {
   render() {
     let fRef = null;
     return (
+        <div className='content-wrap'>
         <div className={'vendor-background'} >
         <Grid container centered >
           <Grid.Column>
@@ -64,6 +65,7 @@ class AddRecipes extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
         </div>
     );
   }

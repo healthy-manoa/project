@@ -16,6 +16,7 @@ class UserProfile extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className='content-wrap'>
         <div className={'vendor-background'}>
         <Container>
           <Header as="h2" textAlign="center" inverted>Profile</Header>
@@ -37,6 +38,7 @@ class UserProfile extends React.Component {
               </Grid.Row>
           </Grid>
         </Container>
+        </div>
         </div>
     );
   }

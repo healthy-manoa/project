@@ -14,6 +14,7 @@ class IndividualRecipe extends React.Component {
 
   renderPage() {
     return (
+        <div className='content-wrap'>
         <div className={'vendor-background'} >
           <Container>
             <Header as="h2" textAlign="center" inverted>{this.props.recipe.name}</Header>
@@ -28,6 +29,7 @@ class IndividualRecipe extends React.Component {
             <p className={'white-text'}>{this.props.recipe.tags}</p>
             <Header as="h4" textAlign="left" inverted>Publisher: {this.props.recipe.owner}</Header>
           </Container>
+        </div>
         </div>
     );
   }

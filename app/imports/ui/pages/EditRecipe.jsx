@@ -32,6 +32,7 @@ class EditRecipe extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
+        <div className='content-wrap'>
         <div className={'vendor-background'} >
         <Grid container centered>
           <Grid.Column>
@@ -50,6 +51,7 @@ class EditRecipe extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
         </div>
     );
   }

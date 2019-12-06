@@ -39,6 +39,7 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
+        <div className='content-wrap'>
         <div className={'vendor-background'} >
       <Container>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
@@ -84,6 +85,7 @@ class Signup extends React.Component {
           </Grid.Column>
         </Grid>
       </Container>
+        </div>
         </div>
     );
   }
