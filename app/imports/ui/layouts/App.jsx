@@ -22,7 +22,8 @@ import EditRecipe from '../pages/EditRecipe';
 import EditVendor from '../pages/EditVendor';
 import IndividualVendor from '../components/IndividualVendor';
 import EditPassword from '../pages/EditPassword';
-
+import ListInventoryAdmin from '../pages/ListInventoryAdmin';
+import ShowVendorsAdmin from '../pages/ShowVendorsAdmin';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -34,7 +35,9 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <AdminProtectedRoute path="/vendor" component={ShowVendorsAdmin}/>
               <Route path="/vendor" component={ShowVendors}/>
+              <AdminProtectedRoute path="/list-inventory" component={ListInventoryAdmin}/>
               <ProtectedRoute path="/list-inventory" component={ListInventory}/>
               <ProtectedRoute path="/list-recipes" component={ListRecipes}/>
               <Route path="/individual-vendor/:_id" component={IndividualVendor}/>
