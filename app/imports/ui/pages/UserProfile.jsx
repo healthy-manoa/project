@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Grid, Header, Image, Loader } from 'semantic-ui-react';
+import { Container, Grid, Header, Image, Loader, Card, Divider, Placeholder } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import IndividualRecipe from '../components/IndividualRecipe';
+import UserRecipe from '../components/UserRecipe';
 import { Recipes } from '../../api/recipe/Recipes';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -16,26 +17,27 @@ class UserProfile extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className='content-wrap'>
+        <div className={'vendor-background'}>
         <Container>
-          <Header as="h2" textAlign="center">Profile</Header>
-          <Grid divided='vertically'>
-            <Grid.Row columns={2}>
-            <Grid.Column width={4}>
-              <Grid>
-                <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
-              </Grid>
-            </Grid.Column>
-              <Grid.Column>
-                <Header as="h2" textAlign="center">Username: {this.props.currentUser}</Header>
-              </Grid.Column>
+          <Header as="h2" textAlign="center" inverted>Profile</Header>
+          <Divider inverted/>
+          <Grid>
+            <Grid.Row centered columns={2}>
+                <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
+                <Header textAlign="center"><Link to={`/change-password/:_id`}>Change Password</Link></Header>
             </Grid.Row>
-              <Grid.Row>
-                <Grid.Column>
-                  {this.props.recipes.map((recipes) => <IndividualRecipe key={recipes._id} recipe={recipes} />)}
-                </Grid.Column>
+            <Divider inverted/>
+              <Grid.Row centered columns={2}>
+                <Header as="h2" textAlign="center" inverted>Individual Recipes</Header>
+                <Card.Group>
+                  {this.props.recipes.map((recipes) => <UserRecipe key={recipes._id} recipe={recipes} />)}
+                </Card.Group>
               </Grid.Row>
           </Grid>
         </Container>
+        </div>
+        </div>
     );
   }
 }
@@ -50,7 +52,7 @@ UserProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('IndividualRecipes');
+  const subscription = Meteor.subscribe('UserRecipes');
   return {
     recipes: Recipes.find({}).fetch(),
     ready: subscription.ready(),

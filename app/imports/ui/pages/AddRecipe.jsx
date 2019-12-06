@@ -3,6 +3,8 @@ import { Recipes } from '/imports/api/recipe/Recipes';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField';
+import ListField from 'uniforms-semantic/ListField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
@@ -13,6 +15,7 @@ import SimpleSchema from 'simpl-schema';
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   name: String,
+  image: String,
   description: String,
   ingredients: Array,
   'ingredients.$': String,
@@ -26,9 +29,9 @@ class AddRecipes extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, description, ingredients, steps, tags } = data;
+    const { name, image, description, ingredients, steps, tags } = data;
     const owner = Meteor.user().username;
-    Recipes.insert({ name, description, ingredients, steps, tags, owner },
+    Recipes.insert({ name, image, description, ingredients, steps, tags, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -43,22 +46,27 @@ class AddRecipes extends React.Component {
   render() {
     let fRef = null;
     return (
-        <Grid container centered>
+        <div className='content-wrap'>
+        <div className={'vendor-background'} >
+        <Grid container centered >
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Recipes</Header>
+            <Header as="h2" textAlign="center" inverted>Add Recipes</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <TextField description='description'/>
-                <TextField ingredients='ingredients'/>
-                <TextField steps='steps'/>
-                <TextField tags='tags'/>
+                <TextField name='image'/>
+                <LongTextField name='description'/>
+                <ListField name='ingredients'/>
+                <LongTextField name='steps'/>
+                <ListField name='tags'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
+        </div>
     );
   }
 }

@@ -33,16 +33,18 @@ class Signup extends React.Component {
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/add' } };
+    const { from } = this.props.location.state || { from: { pathname: '/profile' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
     return (
+        <div className='content-wrap'>
+        <div className={'vendor-background'} >
       <Container>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
-            <Header as="h2" textAlign="center">
+            <Header as="h2" textAlign="center" inverted>
               Register your account
             </Header>
             <Form onSubmit={this.submit}>
@@ -83,6 +85,8 @@ class Signup extends React.Component {
           </Grid.Column>
         </Grid>
       </Container>
+        </div>
+        </div>
     );
   }
 }

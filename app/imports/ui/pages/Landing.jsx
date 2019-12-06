@@ -1,20 +1,45 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import _ from 'lodash';
-import { Grid, Image, Search } from 'semantic-ui-react';
+import { Grid, Image, Search, Label, Dropdown } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Recipes } from '../../api/recipe/Recipes';
+import { Vendors } from '../../api/vendor/Vendors';
+
+const searchOptions = [
+  {
+    key: 'Vendors',
+    text: 'Vendors',
+    name: 'Vendors',
+    value: 'Vendors',
+  },
+  {
+    key: 'Recipes',
+    text: 'Recipes',
+    name: 'Recipes',
+    value: 'Recipes',
+  },
+];
+
+const resultRenderer = ({ name }) => <Label content={name}/>;
+
+resultRenderer.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+};
 
 const initialState = { isLoading: false, results: [], value: '' };
-
-const source = Meteor.settings.defaultRecipes;
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   state = initialState;
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.name });
+  handleDropChange = (e, { value }) => this.setState({ dropValue: value });
+
+  handleResultSelect = (e, { result }) => {
+    this.setState({ value: result.name });
+  }
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
@@ -22,10 +47,14 @@ class Landing extends React.Component {
     setTimeout(() => {
       if (this.state.value.length < 1) return this.setState(initialState);
 
+      let source;
+      if (this.state.dropValue === 'Recipes') source = this.props.recipes;
+      else source = this.props.vendors;
+
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
       const isMatch = (result) => re.test(result.name);
 
-      this.setState({
+      return this.setState({
         isLoading: false,
         results: _.filter(source, isMatch),
       });
@@ -33,29 +62,39 @@ class Landing extends React.Component {
   }
 
   render() {
-    const { isLoading, value, results } = this.state;
     const style = { paddingTop: '150px' };
+    const { value, results } = this.state;
     return (
+        <div className='content-wrap'>
         <div className='background'>
           <Grid style={style} verticalAlign='bottom' textAlign='center' container>
             <Grid.Row>
               <Image size='medium' centered src='/images/logo.png'/>
             </Grid.Row>
-            <Grid.Row>
-              <Search
-                  size='massive'
-                  fluid
-                  loading={isLoading}
-                  onResultSelect={this.handleResultSelect}
-                  onSearchChange={_.debounce(this.handleSearchChange, 500, {
-                    leading: true,
-                  })}
-                  results={results}
-                  value={value}
-                  {...this.props}
-              />
+            <Grid.Row columns={5}>
+              <Grid.Column>
+                <Dropdown
+                    placeholder='Choose what to search'
+                    selection
+                    options={ searchOptions }
+                    onChange={this.handleDropChange}
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Search
+                    size='huge'
+                    onResultSelect={this.handleResultSelect}
+                    onSearchChange={_.debounce(this.handleSearchChange, 500, {
+                      leading: true,
+                    })}
+                    results={results}
+                    value={value}
+                    resultRenderer={resultRenderer}
+                />
+              </Grid.Column>
             </Grid.Row>
           </Grid>
+        </div>
         </div>
     );
   }
@@ -63,15 +102,16 @@ class Landing extends React.Component {
 
 Landing.propTypes = {
   recipes: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
+  vendors: PropTypes.array.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const recipeSub = Meteor.subscribe('Recipes');
+  Meteor.subscribe('PublicRecipes');
+  Meteor.subscribe('Vendors');
   return {
-    ready: recipeSub.ready(),
     recipes: Recipes.find({}).fetch(),
+    vendors: Vendors.find({}).fetch(),
   };
 })(Landing);

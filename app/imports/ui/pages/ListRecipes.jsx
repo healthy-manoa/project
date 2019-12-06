@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Grid } from 'semantic-ui-react';
+import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '../../api/recipe/Recipes';
@@ -17,16 +17,16 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className='content-wrap'>
+        <div className={'vendor-background'}>
         <Container>
-          <Header as="h2" textAlign="center">List Recipes</Header>
-          <Grid>
-          <Grid.Row>
-            <Grid.Column>
+          <Header as="h2" textAlign="center" inverted>List Recipes</Header>
+            <Card.Group>
               {this.props.recipes.map((recipes) => <PublicRecipe key={recipes} recipe={recipes} />)}
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+            </Card.Group>
         </Container>
+        </div>
+        </div>
     );
   }
 }

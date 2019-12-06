@@ -8,7 +8,6 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -18,9 +17,13 @@ import AddRecipes from '../pages/AddRecipe';
 import ListRecipes from '../pages/ListRecipes';
 import ListInventory from '../pages/ListInventory';
 import ShowVendors from '../pages/ShowVendors';
+import IndividualRecipe from '../pages/IndividualRecipe';
+import EditRecipe from '../pages/EditRecipe';
 import EditVendor from '../pages/EditVendor';
 import IndividualVendor from '../components/IndividualVendor';
-
+import EditPassword from '../pages/EditPassword';
+import ListInventoryAdmin from '../pages/ListInventoryAdmin';
+import ShowVendorsAdmin from '../pages/ShowVendorsAdmin';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -32,15 +35,21 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <AdminProtectedRoute path="/vendor" component={ShowVendorsAdmin}/>
               <Route path="/vendor" component={ShowVendors}/>
-              <Route path="/list-inventory" component={ListInventory}/>
+              <AdminProtectedRoute path="/list-inventory" component={ListInventoryAdmin}/>
+              <ProtectedRoute path="/list-inventory" component={ListInventory}/>
+              <ProtectedRoute path="/list-recipes" component={ListRecipes}/>
               <Route path="/individual-vendor/:_id" component={IndividualVendor}/>
-              <Route path="/profile" component={UserProfile}/>
+              <ProtectedRoute path="/profile" component={UserProfile}/>
+              <ProtectedRoute path="/individual-vendor/:_id" component={IndividualVendor}/>
               <ProtectedRoute path="/list" component={ListRecipes}/>
               <ProtectedRoute path="/edit-vendor/:_id" component={EditVendor}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
-              <ProtectedRoute path="/add" component={AddRecipes}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/add-recipe" component={AddRecipes}/>
+              <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
+              <ProtectedRoute path="/change-password/:_id" component={EditPassword}/>
+              <ProtectedRoute path="/recipes/:_id" component={IndividualRecipe}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
@@ -82,6 +91,20 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
           const isLogged = Meteor.userId() !== null;
           const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
           return (isLogged && isAdmin) ?
+              (<Component {...props} />) :
+              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              );
+        }}
+    />
+);
+
+const VendorProtectedRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={(props) => {
+          const isLogged = Meteor.userId() !== null;
+          const isVendor = Roles.userIsInRole(Meteor.userId(), 'vendor');
+          return (isLogged && isVendor) ?
               (<Component {...props} />) :
               (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
               );

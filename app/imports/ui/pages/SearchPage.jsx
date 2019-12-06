@@ -5,11 +5,13 @@ import { Container, Header } from 'semantic-ui-react';
 class SearchPage extends React.Component {
   render() {
     return (
+        <div className='content-wrap'>
         <Container>
           <Header centered>
             To be finished
           </Header>
         </Container>
+        </div>
     );
   }
 }
