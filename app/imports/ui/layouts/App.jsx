@@ -19,12 +19,16 @@ import ListInventory from '../pages/ListInventory';
 import ShowVendors from '../pages/ShowVendors';
 import IndividualRecipe from '../pages/IndividualRecipe';
 import EditRecipe from '../pages/EditRecipe';
+<<<<<<< Updated upstream
 import EditVendor from '../pages/EditVendor';
 import IndividualVendor from '../components/IndividualVendor';
 import EditVendor from '../pages/EditVendor';
 import IndividualVendor from '../components/IndividualVendor';
 import EditPassword from '../pages/EditPassword';
 
+=======
+import EditPassword from '../pages/EditPassword';
+>>>>>>> Stashed changes
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -48,6 +52,7 @@ class App extends React.Component {
               <ProtectedRoute path="/profile" component={UserProfile}/>
               <ProtectedRoute path="/add-recipe" component={AddRecipes}/>
               <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
+              <ProtectedRoute path="/change-password/:_id" component={EditPassword}/>
               <ProtectedRoute path="/recipes/:_id" component={IndividualRecipe}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
