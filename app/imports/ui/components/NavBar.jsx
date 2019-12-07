@@ -34,20 +34,25 @@ class NavBar extends React.Component {
               </Modal.Description>
             </Modal.Content>
           </Modal>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
-          <Header as='h4'><Icon name='shop'/>Vendors</Header>
-        </Menu.Item>
+        { !this.props.currentUser ? (
+          <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
+            <Header as='h4'><Icon name='shop'/>Vendors</Header>
+          </Menu.Item>) : ''
+        }
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
-        ) :  {this.props.currentUser ? (
-              [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Recipes</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Recipes</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>Profile</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list-inventory" key= 'inventory' >Inventory</Menu.Item>,
-              ]
-          ) : ''}  }
-        {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active"
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>,
+              // eslint-disable-next-line max-len
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/list-inventory-admin" key= 'inventory' >Inventory</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-admin" key= 'vendor' >
+                <Header as='h4'><Icon name='shop'/>Vendors</Header>
+              </Menu.Item>,
+            ]
+        ) : '' }
+        { !Roles.userIsInRole(Meteor.userId(), 'admin') && this.props.currentUser ? (
+            [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
+              <Header as='h4'><Icon name='shop'/>Vendors</Header>
+            </Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active"
                         exact to="/list-inventory" key= 'inventory' ><Header as='h4'><Icon name='boxes'/>Inventory</Header></Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/list-recipes" key='list-recipes'><Header as='h4'><Icon name='utensils'/>List Recipes</Header></Menu.Item>,
