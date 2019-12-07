@@ -9,7 +9,7 @@ class Vendor extends React.Component {
     return (
         <Link to={`/individual-vendor/${this.props.vendor._id}`} className={'vendor-button'}>
         <Card>
-          <Image className = {'vendor-image'} size ='medium' src= {this.props.vendor.image} />
+          <Image className = {'vendor-image'}  src= {this.props.vendor.image} />
           <Card.Content>
             <Card.Header>{this.props.vendor.name}</Card.Header>
             <Card.Meta>

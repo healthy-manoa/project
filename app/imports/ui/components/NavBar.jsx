@@ -35,35 +35,53 @@ class NavBar extends React.Component {
             </Modal.Content>
           </Modal>
         { !this.props.currentUser ? (
-          <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
-            <Header as='h4'><Icon name='shop'/>Vendors</Header>
-          </Menu.Item>) : ''
+            // eslint-disable-next-line react/jsx-key
+            [ <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
+                   <Header as='h4'><Icon name='shop'/>Vendors</Header>
+              </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
+                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
+              </Menu.Item>,
+            ]) : ''
+        }
+        { this.props.currentUser && !Roles.userIsInRole(Meteor.userId(), 'admin') && !Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
+            // eslint-disable-next-line react/jsx-key
+            [ <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
+              <Header as='h4'><Icon name='shop'/>Vendors</Header>
+              </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
+                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
+              </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>
+                <Header as='h4'><Icon name='smile'/>Profile</Header>
+              </Menu.Item>,
+            ]) : ''
         }
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>,
-              // eslint-disable-next-line max-len
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/list-inventory-admin" key= 'inventory' >Inventory</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-admin" key= 'vendor' >
-                <Header as='h4'><Icon name='shop'/>Vendors</Header>
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-admin" key= 'vendor' >
+                <Header as='h4'><Icon name='shop'/> Vendors</Header>
+              </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-inventory-admin" key= 'inventory' >
+                <Header as='h4'><Icon name='boxes'/>Inventory</Header>
+              </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes" key='list-recipes'>
+                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
               </Menu.Item>,
             ]
         ) : '' }
-        { !Roles.userIsInRole(Meteor.userId(), 'admin') && this.props.currentUser ? (
+        { Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
             [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
               <Header as='h4'><Icon name='shop'/>Vendors</Header>
             </Menu.Item>,
                 <Menu.Item as={NavLink} activeClassName="active"
                         exact to="/list-inventory" key= 'inventory' ><Header as='h4'><Icon name='boxes'/>Inventory</Header></Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/list-recipes" key='list-recipes'><Header as='h4'><Icon name='utensils'/>List Recipes</Header></Menu.Item>,
+                         exact to="/list-recipes" key='list-recipes'><Header as='h4'><Icon name='utensils'/>Recipes</Header></Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/add-recipe" key='add-recipe'><Header as='h4'><Icon name='plus'/>Add Recipes</Header></Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/profile" key='profile'><Header as='h4'><Icon name='smile'/>Profile</Header></Menu.Item>,
             ]
-        ) : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'><Header as='h4'>Admin</Header></Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (

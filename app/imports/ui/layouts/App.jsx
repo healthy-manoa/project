@@ -35,6 +35,7 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <Route path="/list-recipes-public" component={ListRecipes}/>
               <AdminProtectedRoute path="/vendor-admin" component={ShowVendorsAdmin}/>
               <Route path="/vendor" component={ShowVendors}/>
               <AdminProtectedRoute path="/list-inventory-admin" component={ListInventoryAdmin}/>
@@ -49,7 +50,7 @@ class App extends React.Component {
               <ProtectedRoute path="/add-recipe" component={AddRecipes}/>
               <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
               <ProtectedRoute path="/change-password/:_id" component={EditPassword}/>
-              <ProtectedRoute path="/recipes/:_id" component={IndividualRecipe}/>
+              <Route path="/recipes/:_id" component={IndividualRecipe}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
@@ -124,4 +125,8 @@ AdminProtectedRoute.propTypes = {
   location: PropTypes.object,
 };
 
+VendorProtectedRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
 export default App;

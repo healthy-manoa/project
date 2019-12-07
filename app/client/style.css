@@ -9,7 +9,8 @@
   background-image: url("https://i.pinimg.com/originals/50/5c/86/505c86078071cfa05794264907521db9.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 700px;
+  height: auto;
+  min-height: 750px;
 }
 
 .vendor-button{
@@ -32,11 +33,12 @@
 }
 
 .individual-vendor{
-  margin-top: 20px;
+  padding-top: 30px;
 }
 
 .vendor-image{
   object-fit: cover;
+  height: 175px;
 }
 
 .page-container {
@@ -53,4 +55,10 @@
   bottom: 0;
   width: 100%;
   height: 2.5rem;            /* Footer height */
+}
+
+.gradient-green{
+  background-color: #20bf55;
+  background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+  min-height: 750px;
 }

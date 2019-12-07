@@ -17,8 +17,8 @@ class IndividualVendor extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <div>
-          <Container>
+        <div className={'gradient-green'}>
+          <Container className={'individual-vendor'}>
           <Image size = 'large' src= {this.props.doc.image} />
           <Header> {this.props.doc.name}</Header>
             <span className='date'>{this.props.doc.location}</span>
