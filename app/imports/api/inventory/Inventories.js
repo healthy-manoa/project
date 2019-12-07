@@ -9,7 +9,6 @@ const Inventories = new Mongo.Collection('Inventories');
 const InventoriesSchema = new SimpleSchema({
   vendor: String,
   location: String,
-  contact: String,
   ingredient: String,
   image: String,
   description: String,

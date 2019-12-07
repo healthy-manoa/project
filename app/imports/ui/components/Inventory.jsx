@@ -22,7 +22,7 @@ class Inventory extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.inventory._id}`}>Edit</Link>
+            <Link to={`/edit-inventory/${this.props.inventory._id}`}>Edit</Link>
           </Card.Content>
         </Card>
 

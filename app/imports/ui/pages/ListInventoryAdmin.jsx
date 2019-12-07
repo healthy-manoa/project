@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Image, Icon } from 'semantic-ui-react';
 import Inventory from '/imports/ui/components/Inventory';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Inventories } from '/imports/api/inventory/Inventories';
+import { Link } from 'react-router-dom';
 
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -28,8 +29,11 @@ class ListInventoryAdmin extends React.Component {
                 inventory={inventory}
                 />)}
           </Card.Group>
+          <Card>
+            <Image src={'https://imageog.flaticon.com/icons/png/512/61/61112.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF'} />
+          </Card>
         </Container>
-  </div>
+         </div>
         </div>
     );
   }

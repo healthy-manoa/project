@@ -36,7 +36,7 @@ class NavBar extends React.Component {
           </Modal>
         { !this.props.currentUser ? (
             // eslint-disable-next-line react/jsx-key
-            [ <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
+            [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor" key='vendor' >
                    <Header as='h4'><Icon name='shop'/>Vendors</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
@@ -46,7 +46,7 @@ class NavBar extends React.Component {
         }
         { this.props.currentUser && !Roles.userIsInRole(Meteor.userId(), 'admin') && !Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
             // eslint-disable-next-line react/jsx-key
-            [ <Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
+            [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
               <Header as='h4'><Icon name='shop'/>Vendors</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
