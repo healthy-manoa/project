@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ class PublicRecipe extends React.Component {
           <Card.Content>
             <Card.Header>{this.props.recipe.name}</Card.Header>
             <Card.Description>Description: {this.props.recipe.description}</Card.Description>
-            <Card.Description>Ingredients: {this.props.recipe.ingredients}</Card.Description>
+            <Card.Description>Ingredients:{this.props.recipe.ingredients}</Card.Description>
             <Card.Description>Steps: {this.props.recipe.steps}</Card.Description>
             <Card.Description>Tags: {this.props.recipe.tags}</Card.Description>
             <Card.Meta>{this.props.recipe.owner}</Card.Meta>

@@ -29,8 +29,11 @@ class AddRecipes extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, image, description, ingredients, steps, tags } = data;
+    const { name, image, description, steps } = data;
+    let { ingredients, tags } = data;
     const owner = Meteor.user().username;
+    ingredients = ingredients.join(', ');
+    tags = tags.join(', ');
     Recipes.insert({ name, image, description, ingredients, steps, tags, owner },
       (error) => {
         if (error) {
