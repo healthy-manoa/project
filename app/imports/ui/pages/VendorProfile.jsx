@@ -1,14 +1,14 @@
 import React from 'react';
-import { Container, Grid, Header, Image, Loader, Card, Divider, Placeholder } from 'semantic-ui-react';
+import { Container, Grid, Header, Image, Loader, Card, Divider} from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Roles } from 'meteor/alanning:roles';
 import UserRecipe from '../components/UserRecipe';
 import { Recipes } from '../../api/recipe/Recipes';
+
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class UserProfile extends React.Component {
+class VendorProfile extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -26,8 +26,8 @@ class UserProfile extends React.Component {
             <Grid.Row centered columns={2}>
                 <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
                 <Header textAlign="center"><Link to={'/change-password/:_id'}>Change Password</Link></Header>
-              {Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
-                <Header textAlign="center"><Link to={'/add-recipe'}>Upload Recipes</Link></Header>) : '' }
+              <Header textAlign="center"><Link to={'/add-recipe'}>Upload Recipes</Link></Header>
+              <Header textAlign="center"><Link to={'/edit-vendor/:_id'}>Edit your vendor page </Link></Header>
             </Grid.Row>
             <Divider inverted/>
               <Grid.Row centered columns={2}>
@@ -45,7 +45,7 @@ class UserProfile extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-UserProfile.propTypes = {
+VendorProfile.propTypes = {
   recipes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
   currentUser: PropTypes.string,
@@ -60,4 +60,4 @@ export default withTracker(() => {
     ready: subscription.ready(),
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };
-})(UserProfile);
+})(VendorProfile);
