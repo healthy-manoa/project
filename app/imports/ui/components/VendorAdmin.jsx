@@ -16,7 +16,7 @@ class VendorAdmin extends React.Component {
               <span className='date'>{this.props.vendor.location}</span>
             </Card.Meta>
             <Card.Description>
-              {this.props.vendor.description}
+              Click the card to learn more
             </Card.Description>
           </Card.Content>
           <Card.Content extra>

@@ -19,16 +19,16 @@ class ShowVendors extends React.Component {
     return (
         <div className='content-wrap'>
         <div className={'vendor-background'}>
-        <Container>
+        <Container >
           <Header as="h2" textAlign="center" inverted> Vendors</Header>
-          <Card.Group>
+          <Card.Group centered >
             {this.props.vendors.map((vendors, index) => <Vendor
                 key={index}
                 vendor={vendors}
                 />)}
           </Card.Group>
         </Container>
-  </div>
+        </div>
         </div>
     );
   }

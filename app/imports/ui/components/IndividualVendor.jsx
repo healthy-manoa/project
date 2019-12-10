@@ -24,6 +24,8 @@ class IndividualVendor extends React.Component {
             <span className='date'>{this.props.doc.location}</span>
           <Header> Description</Header>
              <p> {this.props.doc.description} </p>
+            <Header> Description</Header>
+            <p> {this.props.doc.description} </p>
         </Container>
         </div>
     );
