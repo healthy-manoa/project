@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Image } from 'semantic-ui-react';
 import VendorAdmin from '/imports/ui/components/VendorAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -27,6 +27,9 @@ class ShowVendors extends React.Component {
                 vendor={vendors}
                 />)}
           </Card.Group>
+          <Card>
+            <Image src={'https://imageog.flaticon.com/icons/png/512/61/61112.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF'} />
+          </Card>
         </Container>
   </div>
         </div>
