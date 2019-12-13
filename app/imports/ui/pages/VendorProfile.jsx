@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import UserRecipe from '../components/UserRecipe';
 import { Recipes } from '../../api/recipe/Recipes';
-
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class VendorProfile extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -27,7 +26,7 @@ class VendorProfile extends React.Component {
                 <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
                 <Header textAlign="center"><Link to={'/change-password/:_id'}>Change Password</Link></Header>
               <Header textAlign="center"><Link to={'/add-recipe'}>Upload Recipes</Link></Header>
-              <Header textAlign="center"><Link to={'/edit-vendor/:_id'}>Edit your vendor page </Link></Header>
+              <Header textAlign="center"><Link to={`/edit-vendor/:_id`}>Edit</Link></Header>
             </Grid.Row>
             <Divider inverted/>
               <Grid.Row centered columns={2}>
@@ -60,4 +59,5 @@ export default withTracker(() => {
     ready: subscription.ready(),
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };
+
 })(VendorProfile);
