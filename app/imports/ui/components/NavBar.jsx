@@ -80,7 +80,7 @@ class NavBar extends React.Component {
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/add-recipe" key='add-recipe'><Header as='h4'><Icon name='plus'/>Add Recipes</Header></Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/profile" key='profile'><Header as='h4'><Icon name='smile'/>Profile</Header></Menu.Item>,
+                         exact to="/vendor-profile" key='vendor-profile'><Header as='h4'><Icon name='smile'/>Profile</Header></Menu.Item>,
             ]
         ) : ''}
         <Menu.Item position="right">

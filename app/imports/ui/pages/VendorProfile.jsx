@@ -4,11 +4,14 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Roles } from 'meteor/alanning:roles';
 import UserRecipe from '../components/UserRecipe';
+import VendorAdmin from '../components/VendorAdmin';
 import { Recipes } from '../../api/recipe/Recipes';
+import { Vendors } from '../../api/vendor/Vendors';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class UserProfile extends React.Component {
+class VendorProfile extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -28,6 +31,13 @@ class UserProfile extends React.Component {
                 <Header textAlign="center"><Link to={'/change-password/:_id'}>Change Password</Link></Header>
             </Grid.Row>
             <Divider inverted/>
+            <Grid.Row centered columns={2}>
+              <Header as="h2" textAlign="center" inverted>Individual Vendors</Header>
+              <Card.Group>
+              {this.props.vendors.map((vendors) => <VendorAdmin key={vendors._id} vendor={vendors} />)}
+              </Card.Group>
+              </Grid.Row>
+            <Divider inverted/>
               <Grid.Row centered columns={2}>
                 <Header as="h2" textAlign="center" inverted>Individual Recipes</Header>
                 <Card.Group>
@@ -43,8 +53,9 @@ class UserProfile extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-UserProfile.propTypes = {
+VendorProfile.propTypes = {
   recipes: PropTypes.array.isRequired,
+  vendors: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
   currentUser: PropTypes.string,
 };
@@ -52,10 +63,12 @@ UserProfile.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('UserRecipes');
+  const subscription1 = Meteor.subscribe('UserRecipes');
+  const subscription2 = Meteor.subscribe('individualVendors');
   return {
+    vendors: Vendors.find({}).fetch(),
     recipes: Recipes.find({}).fetch(),
-    ready: subscription.ready(),
+    ready: [subscription1.ready(), subscription2.ready()],
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };
-})(UserProfile);
+})(VendorProfile);

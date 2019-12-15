@@ -24,13 +24,13 @@
 
   "defaultVendors": [
     {
-      "name": "Longs Drugs", "image": "http://media.bizj.us/view/img/438171/longskailua*750xx600-338-0-62.jpg", "description": "Descriptions go here", "location": "Address goes here"
+      "name": "Longs Drugs", "image": "http://media.bizj.us/view/img/438171/longskailua*750xx600-338-0-62.jpg", "description": "Descriptions go here", "location": "Address goes here", "owner": "vendor@foo.com"
     },
     {
-      "name": "SafeWay", "image": "https://blog.lolli.com/content/images/2019/07/20130219safewaystore.jpg", "description": "Descriptions go here", "location": "Address goes here"
+      "name": "SafeWay", "image": "https://blog.lolli.com/content/images/2019/07/20130219safewaystore.jpg", "description": "Descriptions go here", "location": "Address goes here", "owner": "vendor@foo.com"
     },
     {
-      "name": "Walmart", "image": "https://www.ttnews.com/sites/default/files/images/articles/walmart2.jpg", "description": "Descriptions go here", "location": "Address goes here"
+      "name": "Walmart", "image": "https://www.ttnews.com/sites/default/files/images/articles/walmart2.jpg", "description": "Descriptions go here", "location": "Address goes here", "owner": "vendor@foo.com"
     }
   ],
 
