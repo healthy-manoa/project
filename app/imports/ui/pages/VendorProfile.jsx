@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, Grid, Header, Image, Loader, Card, Divider} from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Card, Divider } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Roles } from 'meteor/alanning:roles';
 import UserRecipe from '../components/UserRecipe';
 import VendorAdmin from '../components/VendorAdmin';
 import { Recipes } from '../../api/recipe/Recipes';
@@ -76,3 +75,4 @@ export default withTracker(() => {
     ready: [subscription1.ready(), subscription2.ready()],
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };
+})(VendorProfile);
