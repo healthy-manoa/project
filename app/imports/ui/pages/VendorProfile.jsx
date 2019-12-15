@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Header, Card, Divider, Loader } from 'semantic-ui-react';
+import { Container, Grid, Header, Image, Loader, Card, Divider} from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
@@ -38,6 +38,11 @@ class VendorProfile extends React.Component {
               </Card.Group>
               </Grid.Row>
             <Divider inverted/>
+            <Grid.Row>
+              <Header textAlign="center"><Link to={'/add-recipe'}>Upload Recipes</Link></Header>
+              <Header textAlign="center"><Link to={`/edit-vendor/:_id`}>Edit</Link></Header>
+            </Grid.Row>
+            <Divider inverted/>
               <Grid.Row centered columns={2}>
                 <Header as="h2" textAlign="center" inverted>Individual Recipes</Header>
                 <Card.Group>
@@ -71,4 +76,3 @@ export default withTracker(() => {
     ready: [subscription1.ready(), subscription2.ready()],
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };
-})(VendorProfile);
