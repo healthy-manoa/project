@@ -7,7 +7,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -35,10 +34,10 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <AdminProtectedRoute path="/vendor" component={ShowVendorsAdmin}/>
+              <AdminProtectedRoute path="/vendor-admin" component={ShowVendorsAdmin}/>
               <Route path="/vendor" component={ShowVendors}/>
-              <AdminProtectedRoute path="/list-inventory" component={ListInventoryAdmin}/>
-              <ProtectedRoute path="/list-inventory" component={ListInventory}/>
+              <AdminProtectedRoute path="/list-inventory-admin" component={ListInventoryAdmin}/>
+              <VendorProtectedRoute path="/list-inventory" component={ListInventory}/>
               <ProtectedRoute path="/list-recipes" component={ListRecipes}/>
               <Route path="/individual-vendor/:_id" component={IndividualVendor}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
@@ -50,7 +49,6 @@ class App extends React.Component {
               <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
               <ProtectedRoute path="/change-password/:_id" component={EditPassword}/>
               <ProtectedRoute path="/recipes/:_id" component={IndividualRecipe}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
@@ -98,12 +96,18 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
     />
 );
 
+export function userIsVendor (user) {
+  if (Meteor.userId() !== null) {
+    return (user.profile.role === 'vendor');
+  }
+}
+
 const VendorProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) => {
           const isLogged = Meteor.userId() !== null;
-          const isVendor = Roles.userIsInRole(Meteor.userId(), 'vendor');
+          const isVendor = userIsVendor(Meteor.user());
           return (isLogged && isVendor) ?
               (<Component {...props} />) :
               (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
@@ -120,6 +124,12 @@ ProtectedRoute.propTypes = {
 
 /** Require a component and location to be passed to each AdminProtectedRoute. */
 AdminProtectedRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+
+/** Require a component and location to be passed to each AdminProtectedRoute. */
+VendorProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
 };

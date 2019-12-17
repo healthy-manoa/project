@@ -17,7 +17,6 @@ class ShowVendors extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className='content-wrap'>
         <div className={'vendor-background'}>
         <Container>
           <Header as="h2" textAlign="center" inverted> Vendors</Header>
@@ -29,7 +28,6 @@ class ShowVendors extends React.Component {
           </Card.Group>
         </Container>
   </div>
-        </div>
     );
   }
 }

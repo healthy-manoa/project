@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Header, Image, Loader, Card, Divider, Placeholder } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Card, Divider } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { Recipes } from '../../api/recipe/Recipes';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserProfile extends React.Component {
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -16,6 +17,7 @@ class UserProfile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+
     return (
         <div className='content-wrap'>
         <div className={'vendor-background'}>
@@ -24,8 +26,8 @@ class UserProfile extends React.Component {
           <Divider inverted/>
           <Grid>
             <Grid.Row centered columns={2}>
-                <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
-                <Header textAlign="center"><Link to={`/change-password/:_id`}>Change Password</Link></Header>
+                <Header inverted>Username: {this.props.currentUser}</Header>
+              <Header textAlign="center"><Link to={`/change-password/:_id`}>Change Password</Link></Header>
             </Grid.Row>
             <Divider inverted/>
               <Grid.Row centered columns={2}>

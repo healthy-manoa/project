@@ -49,8 +49,7 @@ class AddRecipes extends React.Component {
   render() {
     let fRef = null;
     return (
-        <div className='content-wrap'>
-        <div className={'vendor-background'} >
+        <div className={'vendor-background'}>
         <Grid container centered >
           <Grid.Column>
             <Header as="h2" textAlign="center" inverted>Add Recipes</Header>
@@ -68,7 +67,6 @@ class AddRecipes extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
-        </div>
         </div>
     );
   }

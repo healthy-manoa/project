@@ -5,11 +5,9 @@ import { Header } from 'semantic-ui-react';
 class NotFound extends React.Component {
   render() {
     return (
-        <div className='content-wrap'>
       <Header as="h2" textAlign="center">
         <p>Page not found</p>
       </Header>
-        </div>
     );
   }
 }

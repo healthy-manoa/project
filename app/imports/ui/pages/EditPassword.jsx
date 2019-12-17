@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment, Confirm } from 'semantic-ui-react';
-import { Meteor } from 'meteor/meteor';
+import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
 /**
@@ -41,7 +40,6 @@ class EditPassword extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-        <div className='content-wrap'>
         <div className={'vendor-background'} >
           <Container>
             <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
@@ -87,7 +85,6 @@ class EditPassword extends React.Component {
               </Grid.Column>
             </Grid>
           </Container>
-        </div>
         </div>
     );
   }

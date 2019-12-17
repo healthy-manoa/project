@@ -18,7 +18,6 @@ class ListInventory extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className='content-wrap'>
         <div className={'vendor-background'}>
         <Container>
           <Header as="h2" textAlign="center" inverted>Inventories</Header>
@@ -30,7 +29,6 @@ class ListInventory extends React.Component {
           </Card.Group>
         </Container>
   </div>
-        </div>
     );
   }
 }

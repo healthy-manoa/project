@@ -17,7 +17,6 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className='content-wrap'>
         <div className={'vendor-background'}>
         <Container>
           <Header as="h2" textAlign="center" inverted>List Recipes</Header>
@@ -25,7 +24,6 @@ class ListRecipes extends React.Component {
               {this.props.recipes.map((recipes) => <PublicRecipe key={recipes} recipe={recipes} />)}
             </Card.Group>
         </Container>
-        </div>
         </div>
     );
   }

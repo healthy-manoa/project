@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Dropdown, Header, Image, Icon, Modal } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
+import { userIsVendor } from '../layouts/App'
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
@@ -38,8 +39,7 @@ class NavBar extends React.Component {
           <Header as='h4'><Icon name='shop'/>Vendors</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active"
-                        exact to="/list-inventory" key= 'inventory' ><Header as='h4'><Icon name='boxes'/>Inventory</Header></Menu.Item>,
+            [
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/list-recipes" key='list-recipes'><Header as='h4'><Icon name='utensils'/>List Recipes</Header></Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
@@ -50,6 +50,10 @@ class NavBar extends React.Component {
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'><Header as='h4'>Admin</Header></Menu.Item>
+        ) : ''}
+        {userIsVendor(Meteor.user()) ? (
+            <Menu.Item as={NavLink} activeClassName="active"
+                       exact to="/list-inventory" key= 'inventory' ><Header as='h4'><Icon name='boxes'/>Inventory</Header></Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (

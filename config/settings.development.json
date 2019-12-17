@@ -1,9 +1,9 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "vendor@foo.com", "password": "changeme", "role": "vendor" },
-    { "email": "john@foo.com", "password": "changeme" },
-    { "email": "kyle@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin", "profile":  {"role": "admin", "image": " "} },
+    { "email": "vendor@foo.com", "password": "changeme", "role": "vendor", "profile":  {"role": "vendor", "image": " "} },
+    { "email": "john@foo.com", "password": "changeme" , "role": "student", "profile":  {"role": "student", "image": " "}},
+    { "email": "kyle@foo.com", "password": "changeme", "role": "student", "profile":  {"role": "student", "image": " "}}
   ],
 
   "defaultData": [

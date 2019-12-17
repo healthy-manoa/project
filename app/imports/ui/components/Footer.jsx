@@ -7,7 +7,6 @@ class Footer extends React.Component {
     const divStyle = { paddingTop: '10px' };
     return (
         <footer>
-          <div className='footer'>
             <Grid verticalAlign='middle' textAlign='center'>
               <Grid.Column>
                 <div style={divStyle}>
@@ -18,7 +17,6 @@ class Footer extends React.Component {
                 </div>
               </Grid.Column>
             </Grid>
-          </div>
         </footer>
     );
   }
