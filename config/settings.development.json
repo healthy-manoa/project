@@ -24,14 +24,14 @@
 
   "defaultVendors": [
     {
-      "name": "Longs Drugs", "image": "http://media.bizj.us/view/img/438171/longskailua*750xx600-338-0-62.jpg", "description": "Descriptions go here", "location": "Address goes here",
+      "name": "Longs Drugs", "image": "http://media.bizj.us/view/img/438171/longskailua*750xx600-338-0-62.jpg", "description": "An American chain with approximately 70 drugstores throughout the state of Hawaii and formerly in the Continental US. Before being acquired by CVS Health in 2008, it was a chain of over 500 stores, located primarily on the West Coast of the United States.", "location": "2470 South King Street Honolulu, HI 96826",
       "owner": "vendor@foo.com"
     },
     {
-      "name": "SafeWay", "image": "https://blog.lolli.com/content/images/2019/07/20130219safewaystore.jpg", "description": "Descriptions go here", "location": "Address goes here" , "owner": "vendor@foo.com"
+      "name": "SafeWay", "image": "https://blog.lolli.com/content/images/2019/07/20130219safewaystore.jpg", "description": "In 1915, M.B. Skaggs, an ambitious young man in the small Idaho town of American Falls, purchased a tiny grocery store from his father. M.B.'s business strategy, to give his customers value and to expand by keeping a narrow profit margin, proved spectacularly successful. By 1926 he had opened 428 Skaggs stores in 10 states. M.B. almost doubled the size of his business that year when he merged his company with 322 Safeway (formerly Selig) stores and incorporated as Safeway, Inc. Two years later, M.B. listed Safeway on the New York Stock Exchange. M.B. did not let the difficulties of the Great Depression dilute his pioneering focus on value for customers. In the 1930s, Safeway introduced produce pricing by the pound, added “sell by” dates on perishables to assure freshness, nutritional labeling and even created some of the first parking lots.", "location": "2855 E Manoa Rd, Honolulu, HI 96822" , "owner": "vendor@foo.com"
     },
     {
-      "name": "Walmart", "image": "https://www.ttnews.com/sites/default/files/images/articles/walmart2.jpg", "description": "Descriptions go here", "location": "Address goes here", "owner": "vendor@foo.com"
+      "name": "Walmart", "image": "https://www.ttnews.com/sites/default/files/images/articles/walmart2.jpg", "description": "What started small, with a single discount store and the simple idea of selling more for less, has grown over the last 50 years into the largest retailer in the world. Each week, over 275 million customers and members visit our more than 11,300 stores under 58 banners in 27 countries and eCommerce websites. With fiscal year 2019 revenue of $514.4 billion, Walmart employs over 2.2 million associates worldwide. Walmart continues to be a leader in sustainability, corporate philanthropy and employment opportunity. It’s all part of our unwavering commitment to creating opportunities and bringing value to customers and communities around the world.", "location": "Walmart, 1032 Fort Street Mall, Honolulu, HI 96813", "owner": "vendor@foo.com"
     }
   ],
 
