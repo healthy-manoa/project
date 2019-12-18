@@ -32,9 +32,10 @@ class EditInventory extends React.Component {
   renderPage() {
     return (
         <div className='content-wrap'>
+          <div className='vendor-background'>
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Inventory</Header>
+            <Header as="h2" textAlign="center" inverted>Edit Inventory</Header>
             <AutoForm schema={InventoriesSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='vendor'/>
@@ -50,6 +51,7 @@ class EditInventory extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
         </div>
     );
   }

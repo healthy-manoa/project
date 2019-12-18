@@ -10,7 +10,13 @@ function createUser(email, password, role) {
     username: email,
     email: email,
     password: password,
+    profile: {
+      role: role,
+    }
   });
+  if (role === 'student') {
+    Roles.addUsersToRoles(userID, 'student');
+  }
   if (role === 'admin') {
     Roles.addUsersToRoles(userID, 'admin');
   }

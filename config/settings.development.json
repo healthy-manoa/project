@@ -1,9 +1,9 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "vendor@foo.com", "password": "changeme", "role": "vendor" },
-    { "email": "john@foo.com", "password": "changeme" },
-    { "email": "kyle@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin", "profile": { "role": "admin" } },
+    { "email": "vendor@foo.com", "password": "changeme", "role": "vendor", "profile": { "role": "vendor" } },
+    { "email": "john@foo.com", "password": "changeme", "role": "student", "profile": { "role": "student" } },
+    { "email": "kyle@foo.com", "password": "changeme", "role": "student", "profile": { "role": "student" } }
   ],
 
   "defaultData": [
@@ -29,10 +29,6 @@
     },
     {
       "name": "SafeWay", "image": "https://blog.lolli.com/content/images/2019/07/20130219safewaystore.jpg", "description": "Descriptions go here", "location": "Address goes here" , "owner": "vendor@foo.com"
-    },
-    {
-      "name": "Walmart", "image": "https://www.ttnews.com/sites/default/files/images/articles/walmart2.jpg", "description": "Descriptions go here", "location": "Address goes here", "owner": "vendor@foo.com"
-    }
   ],
 
   "defaultRecipes": [
@@ -41,7 +37,7 @@
       "image": "https://www.fifteenspatulas.com/wp-content/uploads/2012/03/Fried-Rice-Fifteen-Spatulas-8-640x427.jpg",
       "description": "An easy fried rice recipe",
       "ingredients": [
-        "rice", "soy sauce", "vegetables"
+        "rice ", "soy sauce ", "vegetables"
       ],
       "steps": "Test Test Test Test Test",
       "tags": [
@@ -58,7 +54,7 @@
       ],
       "steps": "Test Test Test Test Test Test",
       "tags": [
-        "Easy", "Snack"
+        "Easy ", "Snack"
       ],
       "owner": "kyle@foo.com"
     }

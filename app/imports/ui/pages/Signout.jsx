@@ -9,8 +9,10 @@ export default class Signout extends React.Component {
     return (
         <div className='content-wrap'>
         <div className={'vendor-background'} >
-      <Header as="h2" textAlign="center" inverted>
-        <p className={'white-text'}>You are signed out.</p>
+      <Header as="h2" textAlign="center">
+        <div className='glow'>
+        <p>You are signed out.</p>
+        </div>
       </Header>
         </div>
         </div>
