@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card, Image, Icon } from 'semantic-ui-react';
-import Inventory from '/imports/ui/components/Inventory';
+import InventoryAdmin from '/imports/ui/components/InventoryAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Inventories } from '/imports/api/inventory/Inventories';
@@ -24,7 +24,7 @@ class ListInventoryAdmin extends React.Component {
         <Container>
           <Header as="h2" textAlign="center" inverted>Inventories</Header>
           <Card.Group>
-            {this.props.inventories.map((inventory, index) => <Inventory
+            {this.props.inventories.map((inventory, index) => <InventoryAdmin
                 key={index}
                 inventory={inventory}
                 />)}
