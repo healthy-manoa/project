@@ -22,11 +22,11 @@ class IndividualRecipe extends React.Component {
             <Header as="h3" textAlign="left" inverted>Description</Header>
             <p className={'white-text'}>{this.props.recipe.description}</p>
             <Header as="h3" textAlign="left" inverted>Ingredients</Header>
-            <p className={'white-text'}>{this.props.recipe.ingredients}</p>
+            <p className={'white-text'}>{this.props.recipe.ingredients.join(', ')}</p>
             <Header as="h3" textAlign="left" inverted>Steps</Header>
             <p className={'white-text'}>{this.props.recipe.steps}</p>
             <Header as="h3" textAlign="left" inverted>Tags</Header>
-            <p className={'white-text'}>{this.props.recipe.tags}</p>
+            <p className={'white-text'}>{this.props.recipe.tags.join(' || ')}</p>
             <Header as="h4" textAlign="left" inverted>Publisher: {this.props.recipe.owner}</Header>
           </Container>
         </div>
