@@ -44,7 +44,7 @@ class AddVendor extends React.Component {
         <div className={'vendor-background'} >
         <Grid container centered >
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Add Recipes</Header>
+            <Header as="h2" textAlign="center" inverted>Add Vendors</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
