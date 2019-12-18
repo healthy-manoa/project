@@ -34,14 +34,14 @@ class NavBar extends React.Component {
               </Modal.Description>
             </Modal.Content>
           </Modal>
+        <Menu.Item as={NavLink} activeClassName="" exact to="/vendor" key='vendor' >
+          <Header as='h5'><Icon name='shop'/>Vendors</Header>
+        </Menu.Item>
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
+          <Header as='h5'><Icon name='utensils'/>Recipes</Header>
+        </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor" key='vendor' >
-                   <Header as='h5'><Icon name='shop'/>Vendors</Header>
-              </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
-                <Header as='h5'><Icon name='utensils'/>Recipes</Header>
-              </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/add-recipe" key='add-recipe'>
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add-recipe" key='add-recipe'>
                 <Header as='h5'><Icon name='plus'/>Add Recipes</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>
