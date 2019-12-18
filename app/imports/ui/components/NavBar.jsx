@@ -34,13 +34,16 @@ class NavBar extends React.Component {
               </Modal.Description>
             </Modal.Content>
           </Modal>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/vendor" key='vendor' >
+        {!Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+       [ <Menu.Item as={NavLink} activeClassName="" exact to="/vendor" key='vendor' >
           <Header as='h5'><Icon name='shop'/>Vendors</Header>
-        </Menu.Item>
+        </Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
           <Header as='h5'><Icon name='utensils'/>Recipes</Header>
         </Menu.Item>
-        {this.props.currentUser ? (
+          ]) : ''
+          }
+        {this.props.currentUser && !Roles.userIsInRole(Meteor.userId(), 'admin') ?  (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/add-recipe" key='add-recipe'>
                 <Header as='h5'><Icon name='plus'/>Add Recipes</Header>
               </Menu.Item>,
