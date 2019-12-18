@@ -12,6 +12,7 @@ const VendorSchema = new SimpleSchema({
   image: String,
   description: String,
   location: String,
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
