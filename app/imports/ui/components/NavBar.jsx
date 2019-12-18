@@ -56,6 +56,13 @@ class NavBar extends React.Component {
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list-inventory-admin" key= 'inventory' >
                 <Header as='h5'><Icon name='boxes'/>Inventory Admin</Header>
               </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes" key='list-recipes'>
+                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
+              </Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active"
+                         exact to="/add-recipe" key='add-recipe'><Header as='h4'><Icon name='plus'/>Add Recipes</Header></Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active"
+                         exact to="/add-vendor" key='add-vendor'><Header as='h4'><Icon name='plus'/>Add Vendors</Header></Menu.Item>,
             ]
         ) : '' }
         { this.props.currentRole === 'vendor' ? (

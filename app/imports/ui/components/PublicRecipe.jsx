@@ -9,7 +9,7 @@ class PublicRecipe extends React.Component {
   render() {
     return (
         <Card as={ Link } to={`/recipes/${this.props.recipe._id}`}>
-          <Image src={this.props.recipe.image}/>
+          <Image className = {'vendor-image'} src={this.props.recipe.image}/>
           <Card.Content>
             <Card.Header>{this.props.recipe.name}</Card.Header>
             <Card.Description>Description: {this.props.recipe.description}</Card.Description>

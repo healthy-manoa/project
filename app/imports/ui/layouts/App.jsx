@@ -15,6 +15,7 @@ import Signout from '../pages/Signout';
 import UserProfile from '../pages/UserProfile';
 import VendorProfile from '../pages/VendorProfile';
 import AddRecipes from '../pages/AddRecipe';
+import AddVendor from '../pages/AddVendor';
 import ListRecipes from '../pages/ListRecipes';
 import ListInventory from '../pages/ListInventory';
 import ShowVendors from '../pages/ShowVendors';
@@ -51,6 +52,7 @@ class App extends React.Component {
               <ProtectedRoute path="/profile" component={UserProfile}/>
               <ProtectedRoute path="/vendor-profile" component={VendorProfile}/>
               <ProtectedRoute path="/add-recipe" component={AddRecipes}/>
+              <ProtectedRoute path="/add-vendor" component={AddVendor}/>
               <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
               <ProtectedRoute path="/edit-inventory/:_id" component={EditInventory}/>
               <ProtectedRoute path="/change-password/:_id" component={EditPassword}/>
