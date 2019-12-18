@@ -28,7 +28,7 @@ class AddInventory extends React.Component {
   /** On submit, insert the data. */
   submit(data, formRef) {
     const { vendor, location, ingredient, image, description, owner, price } = data;
-    Inventories.insert({ vendor, location, ingredient, image, description, owner , price},
+    Inventories.insert({ vendor, location, ingredient, image, description, owner, price },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -47,7 +47,7 @@ class AddInventory extends React.Component {
         <div className={'vendor-background'} >
         <Grid container centered >
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Add Recipes</Header>
+            <Header as="h2" textAlign="center" inverted>Add Inventory</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='vendor'/>
