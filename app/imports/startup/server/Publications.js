@@ -4,6 +4,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import { Inventories } from '../../api/inventory/Inventories';
 import { Vendors } from '../../api/vendor/Vendors';
 import { Recipes } from '../../api/recipe/Recipes';
+import { Reviews } from '../../api/review/Reviews';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
@@ -59,4 +60,8 @@ Meteor.publish('individualVendors', function publish() {
     return Vendors.find({ owner: username });
   }
   return this.ready();
+});
+
+Meteor.publish('Reviews', function publish() {
+  return Reviews.find();
 });
