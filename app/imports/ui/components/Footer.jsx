@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid, Card, Label } from 'semantic-ui-react';
+import { Grid, Card, Button } from 'semantic-ui-react';
 import { withRouter, Redirect } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const initialState = { redirect: false };
 
@@ -22,9 +23,9 @@ class Footer extends React.Component {
                     <Card.Header>Healthy Manoa</Card.Header>
                     <Card.Description><a href="https://healthy-manoa.github.io/">Home Page</a></Card.Description>
                   </Card>
-                  <Label onClick={this.handleOnClick}>
+                  <Button onClick={this.handleOnClick}>
                     Give us some feedback!
-                  </Label>
+                  </Button>
                 </div>
               </Grid.Column>
             </Grid>

@@ -29,7 +29,7 @@ class ListInventory extends React.Component {
                 />)}
           </Card.Group>
         </Container>
-  </div>
+        </div>
         </div>
     );
   }
