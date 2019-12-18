@@ -35,7 +35,7 @@ class EditInventory extends React.Component {
           <div className='vendor-background'>
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Inventory</Header>
+            <Header as="h2" textAlign="center" inverted>Edit Inventory</Header>
             <AutoForm schema={InventoriesSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='vendor'/>
