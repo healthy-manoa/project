@@ -32,6 +32,7 @@ class EditInventory extends React.Component {
   renderPage() {
     return (
         <div className='content-wrap'>
+          <div className='vendor-background'>
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Edit Inventory</Header>
@@ -50,6 +51,7 @@ class EditInventory extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
         </div>
     );
   }

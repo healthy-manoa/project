@@ -49,8 +49,8 @@ class App extends React.Component {
               <ProtectedRoute path="/individual-vendor/:_id" component={IndividualVendor}/>
               <ProtectedRoute path="/list" component={ListRecipes}/>
               <ProtectedRoute path="/edit-vendor/:_id" component={EditVendor}/>
-              <VendorProtectedRoute path="/profile-vendor" component={VendorProfile}/>
               <ProtectedRoute path="/profile" component={UserProfile}/>
+              <ProtectedRoute path="/vendor-profile" component={VendorProfile}/>
               <ProtectedRoute path="/add-recipe" component={AddRecipes}/>
               <ProtectedRoute path="/add-vendor" component={AddVendor}/>
               <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>

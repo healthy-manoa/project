@@ -52,3 +52,11 @@ Meteor.publish('InventoriesAdmin', function publish() {
 Meteor.publish('Vendors', function publish() {
   return Vendors.find();
 });
+
+Meteor.publish('individualVendors', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Vendors.find({ owner: username });
+  }
+  return this.ready();
+});
