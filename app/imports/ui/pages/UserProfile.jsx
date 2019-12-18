@@ -26,7 +26,6 @@ class UserProfile extends React.Component {
                 <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
                 <Header textAlign="center"><Link to={'/change-password/:_id'}>Change Password</Link></Header>
                 <Header textAlign="center"><Link to={'/add-recipe'}>Upload Recipes</Link></Header>) :
-              <Header as="h2" textAlign="center" inverted>Username: {this.props.currentUser}</Header>
             </Grid.Row>
             <Divider inverted/>
               <Grid.Row centered columns={2}>

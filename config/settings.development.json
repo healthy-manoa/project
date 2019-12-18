@@ -40,7 +40,7 @@
       "image": "https://www.fifteenspatulas.com/wp-content/uploads/2012/03/Fried-Rice-Fifteen-Spatulas-8-640x427.jpg",
       "description": "An easy fried rice recipe",
       "ingredients": [
-        "rice", "soy sauce", "vegetables"
+        "rice ", "soy sauce ", "vegetables"
       ],
       "steps": "Test Test Test Test Test",
       "tags": [
@@ -57,7 +57,7 @@
       ],
       "steps": "Test Test Test Test Test Test",
       "tags": [
-        "Easy", "Snack"
+        "Easy ", "Snack"
       ],
       "owner": "kyle@foo.com"
     }

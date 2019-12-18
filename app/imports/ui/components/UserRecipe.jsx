@@ -13,9 +13,7 @@ class UserRecipe extends React.Component {
           <Card.Content>
             <Card.Header>{this.props.recipe.name}</Card.Header>
             <Card.Description>Description: {this.props.recipe.description}</Card.Description>
-            <Card.Description>
-              Ingredients:
-              <li>{this.props.recipe.ingredients}</li>
+            <Card.Description>Ingredients: {this.props.recipe.ingredients}
             </Card.Description>
             <Card.Description>Steps: {this.props.recipe.steps}</Card.Description>
             <Card.Description>Tags: {this.props.recipe.tags}</Card.Description>
@@ -25,6 +23,7 @@ class UserRecipe extends React.Component {
             <Link to={`/edit/${this.props.recipe._id}`}>Edit</Link>
           </Card.Content>
         </Card>
+
     );
   }
 }
