@@ -29,7 +29,7 @@ import ShowVendorsAdmin from '../pages/ShowVendorsAdmin';
 import EditInventory from '../pages/EditInventory';
 import EditInventoryAdmin from '../pages/EditInventoryAdmin';
 import Review from '../pages/Review';
-
+import AddInventory from '../pages/AddInventory';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -58,6 +58,7 @@ class App extends React.Component {
               <ProtectedRoute path="/vendor-profile" component={VendorProfile}/>
               <ProtectedRoute path="/add-recipe" component={AddRecipes}/>
               <ProtectedRoute path="/add-vendor" component={AddVendor}/>
+              <ProtectedRoute path="/add-inventory" component={AddInventory}/>
               <ProtectedRoute path="/edit/:_id" component={EditRecipe}/>
               <ProtectedRoute path="/edit-inventory/:_id" component={EditInventory}/>
               <AdminProtectedRoute path="/edit-InventoryAdmin/:_id" component={EditInventoryAdmin}/>
