@@ -78,7 +78,7 @@ html {
 
 .glow {
   font-size: 80px;
-  color: #fff;
+  color: black;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
