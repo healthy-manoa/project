@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     return (
       <Menu borderless style={menuStyle} attached="top">
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header as='h4'><Image size='small' circular src="/images/icon.png"/>Healthy Manoa</Header>
+          <Header as='h5'><Image size='small' circular src="/images/icon.png"/>Healthy Manoa</Header>
         </Menu.Item>
         <Modal trigger={<Menu.Item><Header as='h4'><Icon name='id card'/>About Us</Header></Menu.Item>}>
             <Modal.Header>About Healthy Manoa</Modal.Header>
@@ -34,57 +34,35 @@ class NavBar extends React.Component {
               </Modal.Description>
             </Modal.Content>
           </Modal>
-        { !this.props.currentUser ? (
-            // eslint-disable-next-line react/jsx-key
+        {this.props.currentUser ? (
             [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor" key='vendor' >
-                   <Header as='h4'><Icon name='shop'/>Vendors</Header>
+                   <Header as='h5'><Icon name='shop'/>Vendors</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
-                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
+                <Header as='h5'><Icon name='utensils'/>Recipes</Header>
               </Menu.Item>,
-            ]) : ''
-        }
-        { this.props.currentUser && !Roles.userIsInRole(Meteor.userId(), 'admin') && !Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
-            // eslint-disable-next-line react/jsx-key
-            [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
-              <Header as='h4'><Icon name='shop'/>Vendors</Header>
-              </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes-public" key='list-recipes'>
-                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/add-recipe" key='add-recipe'>
+                <Header as='h5'><Icon name='plus'/>Add Recipes</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>
-                <Header as='h4'><Icon name='smile'/>Profile</Header>
+                <Header as='h5'><Icon name='smile'/>Profile</Header>
               </Menu.Item>,
             ]) : ''
         }
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/vendor-admin" key= 'vendor' >
-                <Header as='h4'><Icon name='shop'/> Vendors</Header>
+                <Header as='h5'><Icon name='shop'/>Vendor Admin</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list-inventory-admin" key= 'inventory' >
-                <Header as='h4'><Icon name='boxes'/>Inventory</Header>
+                <Header as='h5'><Icon name='boxes'/>Inventory Admin</Header>
               </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-recipes" key='list-recipes'>
-                <Header as='h4'><Icon name='utensils'/>Recipes</Header>
-              </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/add-recipe" key='add-recipe'><Header as='h4'><Icon name='plus'/>Add Recipes</Header></Menu.Item>,
             ]
         ) : '' }
-        { Roles.userIsInRole(Meteor.userId(), 'vendor') ? (
-            [<Menu.Item as={NavLink} activeClassName="" exact to="/vendor">
-              <Header as='h4'><Icon name='shop'/>Vendors</Header>
+        { this.props.currentRole === 'vendor' ? (
+            [<Menu.Item as={NavLink} activeClassName="active"
+                        exact to="/list-inventory" key= 'inventory' ><Header as='h4'><Icon name='boxes'/>Inventory</Header>
             </Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active"
-                        exact to="/list-inventory" key= 'inventory' ><Header as='h4'><Icon name='boxes'/>Inventory</Header></Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/list-recipes" key='list-recipes'><Header as='h4'><Icon name='utensils'/>Recipes</Header></Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/add-recipe" key='add-recipe'><Header as='h4'><Icon name='plus'/>Add Recipes</Header></Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active"
-                         exact to="/vendor-profile" key='vendor-profile'><Header as='h4'><Icon name='smile'/>Profile</Header></Menu.Item>,
-            ]
-        ) : ''}
+            ]) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
             <Dropdown text="Login" pointing="top right" icon={'user outline'}>
@@ -109,11 +87,13 @@ class NavBar extends React.Component {
 /** Declare the types of all properties. */
 NavBar.propTypes = {
   currentUser: PropTypes.string,
+  currentRole: PropTypes.string,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 const NavBarContainer = withTracker(() => ({
   currentUser: Meteor.user() ? Meteor.user().username : '',
+  currentRole: Meteor.user() ? Meteor.user().profile.role : '',
 }))(NavBar);
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
